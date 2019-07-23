@@ -94,18 +94,15 @@
   };
 </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="Choice→選の博客 Choice→選 林益远">
+  <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/hello-world/index.html">
+<meta property="og:title" content="mysql的事务四个特性以及事务的四个隔离级别">
+<meta property="og:url" content="http://yoursite.com/p/undefined.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T04:04:21.792Z">
+<meta property="og:updated_time" content="2019-07-23T08:28:13.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="mysql的事务四个特性以及事务的四个隔离级别">
 
 
 
@@ -113,7 +110,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/p/undefined">
 
 
 
@@ -124,7 +121,7 @@
 </script>
 
   
-  <title>Hello World | Choice→選の博客</title>
+  <title>mysql的事务四个特性以及事务的四个隔离级别 | Choice→選の博客</title>
   
 
 
@@ -364,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/undefined.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林益远">
@@ -381,7 +378,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">mysql的事务四个特性以及事务的四个隔离级别
 
               
             
@@ -407,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2019-07-23 10:03:56 / 修改时间：12:04:21" itemprop="dateCreated datePublished" datetime="2019-07-23T10:03:56+08:00">2019-07-23</time>
+              <time title="创建时间：2019-07-23 15:34:18 / 修改时间：16:28:13" itemprop="dateCreated datePublished" datetime="2019-07-23T15:34:18+08:00">2019-07-23</time>
             </span>
           
 
@@ -417,6 +414,21 @@
             
           
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -448,7 +460,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">430</span>
+              <span title="本文字数">2k</span>
             </span>
           
 
@@ -469,20 +481,33 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h1 id="mysql的事务四个特性以及事务的四个隔离级别"><a href="#mysql的事务四个特性以及事务的四个隔离级别" class="headerlink" title="mysql的事务四个特性以及事务的四个隔离级别"></a>mysql的事务四个特性以及事务的四个隔离级别</h1><p>=======================</p>
+<p>事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。</p>
+<h2 id="事务的四大特性（ACID）"><a href="#事务的四大特性（ACID）" class="headerlink" title="事务的四大特性（ACID）"></a>事务的四大特性（ACID）</h2><ul>
+<li>原子性（atomicity）：一个事务必须视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性。</li>
+<li>一致性（consistency）：数据库总数从一个一致性的状态转换到另一个一致性的状态。</li>
+<li>隔离性（isolation）：一个事务所做的修改在最终提交以前，对其他事务是不可见的。</li>
+<li>持久性（durability）：一旦事务提交，则其所做的修改就会永久保存到数据库中。此时即使系统崩溃，修改的数据也不会丢失。</li>
+</ul>
+<p>数据库事务的隔离级别有4种，由低到高分别为Read uncommitted 、Read committed 、Repeatable read 、Serializable 。而且，在事务的并发操作中可能会出现脏读，不可重复读，幻读。下面通过事例一一阐述它们的概念与联系。</p>
+<h2 id="事务的四种隔离级别"><a href="#事务的四种隔离级别" class="headerlink" title="事务的四种隔离级别"></a>事务的四种隔离级别</h2><h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>读未提交，顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
+<p>事例：老板要给程序员发工资，程序员的工资是3.6万/月。但是发工资时老板不小心按错了数字，按成3.9万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了3千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成3.6万再提交。</p>
+<p>分析：实际程序员这个月的工资还是3.6万，但是程序员看到的是3.9万。他看到的是老板还没提交事务时的数据。这就是脏读。</p>
+<p><code>那怎么解决脏读呢？Read committed！读提交，能解决脏读问题。</code></p>
+<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>读提交，顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
+<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有3.6万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</p>
+<p>分析：这就是读提交，若有事务对数据进行更新（UPDATE）操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</p>
+<p><code>那怎么解决可能的不可重复读问题？Repeatable read ！</code></p>
+<h3 id="Repeatable-read"><a href="#Repeatable-read" class="headerlink" title="Repeatable read"></a>Repeatable read</h3><p>重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</p>
+<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（事务开启，不允许其他事务的UPDATE修改操作），收费系统事先检测到他的卡里有3.6万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</p>
+<p>分析：重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即UPDATE操作。但是可能还会有幻读问题。因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作。</p>
+<p>什么时候会出现幻读？</p>
+<p>事例：程序员某一天去消费，花了2千元，然后他的妻子去查看他今天的消费记录（全表扫描FTS，妻子事务开启），看到确实是花了2千元，就在这个时候，程序员花了1万买了一部电脑，即新增INSERT了一条消费记录，并提交。当妻子打印程序员的消费记录清单时（妻子事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。</p>
+<p><code>那怎么解决幻读问题？Serializable！</code></p>
+<h3 id="Serializable-序列化"><a href="#Serializable-序列化" class="headerlink" title="Serializable 序列化"></a>Serializable 序列化</h3><p>Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p>
+<p><code>值得一提的是：大多数数据库默认的事务隔离级别是Read committed，比如Sql Server , Oracle。MySQL的默认隔离级别是Repeatable read</code></p>
+<hr>
+<p>作者：csdnxingyuntian 来源：CSDN 原文：<a href="https://blog.csdn.net/csdnxingyuntian/article/details/57081233" target="_blank" rel="noopener">https://blog.csdn.net/csdnxingyuntian/article/details/57081233</a>版权声明：本文为博主原创文章，转载请附上博文链接！</p>
       
     </div>
 
@@ -520,7 +545,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/2019/07/23/hello-world/" title="Hello World">http://yoursite.com/2019/07/23/hello-world/</a>
+    <a href="http://yoursite.com/p/undefined.html" title="mysql的事务四个特性以及事务的四个隔离级别">http://yoursite.com/p/undefined.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -541,6 +566,15 @@
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
+          
+        </div>
+      
 
       
       
@@ -550,15 +584,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/p/581a.html" rel="next" title="My New Post">
+                <i class="fa fa-chevron-left"></i> My New Post
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/23/My-New-Post/" rel="prev" title="My New Post">
-                My New Post <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -741,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql的事务四个特性以及事务的四个隔离级别"><span class="nav-text">mysql的事务四个特性以及事务的四个隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四大特性（ACID）"><span class="nav-text">事务的四大特性（ACID）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四种隔离级别"><span class="nav-text">事务的四种隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-uncommitted"><span class="nav-text">Read uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-committed"><span class="nav-text">Read committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-read"><span class="nav-text">Repeatable read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable-序列化"><span class="nav-text">Serializable 序列化</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
