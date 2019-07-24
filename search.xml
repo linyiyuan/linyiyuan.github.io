@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[在工作中遇到的一个小需求.md]]></title>
+    <title><![CDATA[在工作中遇到的一个小需求]]></title>
     <url>%2Fp%2F523a.html</url>
     <content type="text"><![CDATA[夺宝码生成规则 夺宝码为6位，由大写字母和数字组成 生成为规则09，然后AZ；从最末位开始 如第一个夺宝码为000000，之后依次为000001000009,00000A00000Z;当末位数09和AZ都已使用完，则从倒数第二位继续 夺宝码为按照以上顺序依次生成 夺宝码每月1号0点清空重新生成 根据上面的生成规则我们可以清楚的了解到这是一个典型的10进制转36进制的问题，生成代码如下 12345678910111213141516171819202122232425262728&lt;?phpfunction makeTreasureCode($num = 0)&#123; if(empty($num)) return []; $outPut = array(); $outPut[] = base_convert($num, 10, 36); $count = strlen($outPut[0]); if ($count &lt; 6) &#123; $k = 6 - $count; for ($j = $k; $j &gt; 0; $j--) &#123; array_push($outPut, 0); &#125; &#125; $outPut = array_reverse($outPut); $outPut = join('', $outPut); return $outPut;&#125;$num = 5 //生成夺宝码的数量$code = makeTreasureCode($num);echo ''; print_r($code);echo '';]]></content>
       <categories>
