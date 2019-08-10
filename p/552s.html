@@ -135,12 +135,10 @@
 <meta property="og:site_name" content="Choice→選の博客">
 <meta property="og:description" content="前言最近项目有个需求，需要限制国外IP的访问，并且请求频率比较多，使用淘宝提供的接口检测的话 超过一定次数就会卡顿或者出现502的错误，所以这里通过计算IP以及网段判断IP是否处于国内的网段，根据Apnic分配给中国的IP网段可以知道所有国内的网段列表 ，这个网段列表是会持续更新，所以需要我们定期去获取更新   Apnic是全球5个地区级的Internet注册机构（RIR）之一，负责亚太地区的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://images.linyiyuan.top/timg.jpg">
-<meta property="og:updated_time" content="2019-08-10T07:39:52.319Z">
+<meta property="og:updated_time" content="2019-08-10T07:47:56.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="检测IP是否为国内IP">
 <meta name="twitter:description" content="前言最近项目有个需求，需要限制国外IP的访问，并且请求频率比较多，使用淘宝提供的接口检测的话 超过一定次数就会卡顿或者出现502的错误，所以这里通过计算IP以及网段判断IP是否处于国内的网段，根据Apnic分配给中国的IP网段可以知道所有国内的网段列表 ，这个网段列表是会持续更新，所以需要我们定期去获取更新   Apnic是全球5个地区级的Internet注册机构（RIR）之一，负责亚太地区的">
-<meta name="twitter:image" content="http://images.linyiyuan.top/timg.jpg">
 
 
 
@@ -444,7 +442,7 @@
                 
               
 
-              <time title="创建时间：2019-08-10 14:42:45 / 修改时间：15:39:52" itemprop="dateCreated datePublished" datetime="2019-08-10T14:42:45+08:00">2019-08-10</time>
+              <time title="创建时间：2019-08-10 14:42:45 / 修改时间：15:47:56" itemprop="dateCreated datePublished" datetime="2019-08-10T14:42:45+08:00">2019-08-10</time>
             </span>
           
 
@@ -543,13 +541,7 @@
       
 
       
-        <img src="http://images.linyiyuan.top/timg.jpg" style="width:900px;height:400px">
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近项目有个需求，需要限制国外IP的访问，并且请求频率比较多，使用淘宝提供的接口检测的话 超过一定次数就会卡顿或者出现502的错误，所以这里通过计算IP以及网段判断IP是否处于国内的网段，根据Apnic分配给中国的IP网段可以知道所有国内的网段列表 ，这个网段列表是会持续更新，所以需要我们定期去获取更新</p>
-<blockquote>
-<p> Apnic是全球5个地区级的Internet注册机构（RIR）之一，负责亚太地区的以下一些事务：<br>（1）分配IPv4和IPv6地址空间，AS号<br>（2）为亚太地区维护Whois数据库<br>（3）反向DNS指派<br>（4）在全球范围内作为亚太地区的Internet社区的代表</p>
-</blockquote>
-<h1 id="定期获取IP网段"><a href="#定期获取IP网段" class="headerlink" title="定期获取IP网段"></a>定期获取IP网段</h1><p>这里小编写了shell脚本并且结合crontab定期获取IP网段列表并写入Redis</p>
+        <h1 id="定期获取IP网段"><a href="#定期获取IP网段" class="headerlink" title="定期获取IP网段"></a>定期获取IP网段</h1><p>这里小编写了shell脚本并且结合crontab定期获取IP网段列表并写入Redis</p>
 <ol>
 <li><p>编写shell脚本获取IP断列表并写入redis中, 保存文件为shell.sh</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">!<span class="comment">#/bin/bash</span></span><br><span class="line">curl <span class="string">'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest'</span> | grep ipv4 | grep CN | awk -F\| <span class="string">'&#123; printf("%s/%d\n", $4, 32-log($5)/log(2)) &#125;'</span> &gt; /china_ip.txt</span><br><span class="line"></span><br><span class="line">cat <span class="string">'/china_ip.txt'</span> |<span class="keyword">while</span> <span class="built_in">read</span> p</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">    redis-cli -h 127.0.0.1 -p 6379 hset <span class="string">"china_ip"</span> <span class="variable">$p</span> <span class="variable">$p</span> &gt;/dev/null</span><br><span class="line">  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
@@ -560,8 +552,6 @@
 </li>
 </ol>
 <h1 id="使用函数判断指定IP是否存在指定网段中（Laravel框架）"><a href="#使用函数判断指定IP是否存在指定网段中（Laravel框架）" class="headerlink" title="使用函数判断指定IP是否存在指定网段中（Laravel框架）"></a>使用函数判断指定IP是否存在指定网段中（Laravel框架）</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class Sms</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@package</span> App\Http\Services\Common</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> YiYuan-LIn</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2019/2/28</span></span><br><span class="line"><span class="comment"> * 校验IP工具类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VerifyIp</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Author</span> YiYuan-LIn</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@Date</span>: 2019/8/10</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@enumeration</span>:</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> $ip</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@description</span> 校验IP是否处于国内的网段</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">CheckWhetherIPIsDomestic</span><span class="params">($ip)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//校验IP参数是否合法</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>($ip)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        $china_ip = Redis::hkeys(<span class="string">'china_ip'</span>);</span><br><span class="line">        $china_ip = array_filter($china_ip);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>($china_ip)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> ($china_ip <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">            $s = explode(<span class="string">'/'</span>, $value);</span><br><span class="line">            $network_start = (double) (sprintf(<span class="string">"%u"</span>, ip2long($s[<span class="number">0</span>])));</span><br><span class="line">            $network_len = pow(<span class="number">2</span>, <span class="number">32</span> - $s[<span class="number">1</span>]);</span><br><span class="line">            $network_end = $network_start + $network_len - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> ($ip &gt;= $network_start &amp;&amp; $ip &lt;= $network_end) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">continue</span> ;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
       
     </div>
 
@@ -863,7 +853,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定期获取IP网段"><span class="nav-text">定期获取IP网段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用函数判断指定IP是否存在指定网段中（Laravel框架）"><span class="nav-text">使用函数判断指定IP是否存在指定网段中（Laravel框架）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#定期获取IP网段"><span class="nav-text">定期获取IP网段</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用函数判断指定IP是否存在指定网段中（Laravel框架）"><span class="nav-text">使用函数判断指定IP是否存在指定网段中（Laravel框架）</span></a></li></ol></div>
             
 
           </div>
