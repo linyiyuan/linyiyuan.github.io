@@ -127,21 +127,22 @@
   };
 </script>
 
-  <meta name="description" content="前言在使用Vue-admin-template作为基础框架进行后台开发的时候，发现每次打包出来的文件很大，最大的有4MB左右, 导致第一次加载页面的十分缓慢，需要很长时间才能进去后台, 影响用户体验，所以现在对其进行优化。">
-<meta name="keywords" content="Vue,Webpack">
+  <meta name="description" content="前言垃圾回收机制是一种动态存储分配方案。它会自动释放程序不再需要的已分配的内存块。 自动回收内存的过程叫垃圾收集。垃圾回收机制可以让程序员不必过分关心程序内存分配，从而将更多的精力投入到业务逻辑。 在现在的流行各种语言当中，垃圾回收机制是新一代语言所共有的特征。">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录一次关于Vue的打包调优过程">
-<meta property="og:url" content="http://yoursite.com/p/001b.html">
+<meta property="og:title" content="详解PHP垃圾回收机制（上）">
+<meta property="og:url" content="http://yoursite.com/p/008a.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="前言在使用Vue-admin-template作为基础框架进行后台开发的时候，发现每次打包出来的文件很大，最大的有4MB左右, 导致第一次加载页面的十分缓慢，需要很长时间才能进去后台, 影响用户体验，所以现在对其进行优化。">
+<meta property="og:description" content="前言垃圾回收机制是一种动态存储分配方案。它会自动释放程序不再需要的已分配的内存块。 自动回收内存的过程叫垃圾收集。垃圾回收机制可以让程序员不必过分关心程序内存分配，从而将更多的精力投入到业务逻辑。 在现在的流行各种语言当中，垃圾回收机制是新一代语言所共有的特征。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190830155242.png">
-<meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190902113040.png">
-<meta property="og:updated_time" content="2019-09-02T07:03:06.151Z">
+<meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190910092340.png">
+<meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190910094943.png">
+<meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190910095938.png">
+<meta property="og:updated_time" content="2019-09-10T07:19:02.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记录一次关于Vue的打包调优过程">
-<meta name="twitter:description" content="前言在使用Vue-admin-template作为基础框架进行后台开发的时候，发现每次打包出来的文件很大，最大的有4MB左右, 导致第一次加载页面的十分缓慢，需要很长时间才能进去后台, 影响用户体验，所以现在对其进行优化。">
-<meta name="twitter:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190830155242.png">
+<meta name="twitter:title" content="详解PHP垃圾回收机制（上）">
+<meta name="twitter:description" content="前言垃圾回收机制是一种动态存储分配方案。它会自动释放程序不再需要的已分配的内存块。 自动回收内存的过程叫垃圾收集。垃圾回收机制可以让程序员不必过分关心程序内存分配，从而将更多的精力投入到业务逻辑。 在现在的流行各种语言当中，垃圾回收机制是新一代语言所共有的特征。">
+<meta name="twitter:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190910092340.png">
 
 
 
@@ -151,7 +152,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/p/001b">
+  <link rel="canonical" href="http://yoursite.com/p/008a">
 
 
 
@@ -162,7 +163,7 @@
 </script>
 
   
-  <title>记录一次关于Vue的打包调优过程 | Choice→選の博客</title>
+  <title>详解PHP垃圾回收机制（上） | Choice→選の博客</title>
   
 
 
@@ -402,7 +403,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/001b.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/008a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林益远">
@@ -419,7 +420,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">记录一次关于Vue的打包调优过程
+          <h1 class="post-title" itemprop="name headline">详解PHP垃圾回收机制（上）
 
               
             
@@ -445,23 +446,13 @@
                 
               
 
-              <time title="创建时间：2019-08-30 14:42:45" itemprop="dateCreated datePublished" datetime="2019-08-30T14:42:45+08:00">2019-08-30</time>
+              <time title="创建时间：2019-09-10 12:32:45 / 修改时间：15:19:02" itemprop="dateCreated datePublished" datetime="2019-09-10T12:32:45+08:00">2019-09-10</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-02 15:03:06" itemprop="dateModified" datetime="2019-09-02T15:03:06+08:00">2019-09-02</time>
-              </span>
             
           
 
@@ -474,7 +465,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
 
                 
                 
@@ -492,8 +483,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/p/001b.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/p/001b.html" itemprop="commentCount"></span>
+                <a href="/p/008a.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/p/008a.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -523,7 +514,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">3.5k</span>
+              <span title="本文字数">5.9k</span>
             </span>
           
 
@@ -535,7 +526,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">6 分钟</span>
+              <span title="阅读时长">10 分钟</span>
             </span>
           
 
@@ -554,59 +545,85 @@
       
 
       
-        <h1 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h1><p>在进行优化的前提下，首先要做得是对整个框架进行分析，看看具体哪个模块以及那个插件打包体积过大，针对性的进行优化，在这里我们通过 <code>webpack-bundle-analyzer</code> 进行分析</p>
-<p>步骤1：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack-bundle-analyzer //安装插件</span><br></pre></td></tr></table></figure>
+        <h2 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h2><p>在学习PHP垃圾回收机制之前先让我们来学习下 <code>引用计数</code> 的基本知识，学习 <code>引用计数</code> 有助于我们了解垃圾回收机制的原理以及php底层，因为PHP垃圾回收机制就是基于<code>引用计数</code>的，在介绍引用计数之前，我曾翻阅过PHP的官方手册，在测试代码的时候发现运行结果与官方手册所写的不符，翻阅相关资料之后发现是官方手册还停留在PH5.x的版本上，而我本地的环境是PHP7.3,所以导致代码结果与官方手册不符，关于为什么不符合，在下文会详细说明，并且会说明引用计数在PHP5.x版本与PHP7.x版本的差异性，当然主要侧重于解释新zval容器中的引用计数机制。</p>
+<h2 id="引用计数基本知识"><a href="#引用计数基本知识" class="headerlink" title="引用计数基本知识"></a>引用计数基本知识</h2><p>首先我们先来了解一下 <code>引用计数</code>，引用官方文档的一段话： 每个php变量存在一个叫”zval”的变量容器中。容器除了包含变量的类型和值，还包括两个字节的额外信息。第一个是”is_ref”，是个bool值，用来标识这个变量是否是属于引用集合(reference set)。通过这个字节，php引擎才能把普通变量和引用变量区分开来，由于php允许用户通过使用&amp;来使用自定义引用，zval变量容器中还有一个内部引用计数机制，来优化内存使用。第二个额外字节是”refcount”，用以表示指向这个zval变量容器的变量(也称符号即symbol)个数，这是PHP官方手册的一个讲解，而这个手册只适用于PHP5.x版本，我们用代码来演示一下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="string">'new string'</span>;</span><br><span class="line"></span><br><span class="line">xdebug_debug_zval(<span class="string">'a'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印结果：</span></span><br><span class="line"></span><br><span class="line">a: (refcount=<span class="number">1</span>, is_ref=<span class="number">0</span>)=<span class="string">'new string'</span></span><br></pre></td></tr></table></figure>
 
-<p>步骤2:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在`build/webpack.prod.config.js`中的`module.exports = webpackConfig`这句话的上面增加</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (config.build.bundleAnalyzerReport) &#123;</span><br><span class="line">  <span class="keyword">const</span> BundleAnalyzerPlugin = <span class="built_in">require</span>(<span class="string">'webpack-bundle-analyzer'</span>).BundleAnalyzerPlugin</span><br><span class="line">  webpackConfig.plugins.push(<span class="keyword">new</span> BundleAnalyzerPlugin())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：你需要安装xdebug拓展才可以执行以上代码，使用debug_zval_dump也可以打印出，但是debug_zval_dump打印的结果与xdebug_debug_zval 打印的结果存在差异，具体说明在本文章中不作解释，具体可查看：<a href="https://blog.csdn.net/pzqingchong/article/details/78004840" target="_blank" rel="noopener">PHP xdebug_debug_zval debug_zval_dump 使用</a></p>
+<p>从结果得知，refcount = 1代表有一个变量名指向这个zval容器 is_ref = 0 代表没有存在引用传递，下面我们增加代码，并且分别使用PHP5.6的环境与PHP7.3的环境执行</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="string">'new string'</span>;</span><br><span class="line"></span><br><span class="line">$b = $a;</span><br><span class="line"></span><br><span class="line">xdebug_debug_zval(<span class="string">'a'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//PHP5.6执行结果：</span></span><br><span class="line">a: (refcount=<span class="number">2</span>, is_ref=<span class="number">0</span>)=<span class="string">'new string'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//PHP7.3执行结果：</span></span><br><span class="line">a: (refcount=<span class="number">1</span>, is_ref=<span class="number">0</span>)=<span class="string">'new string'</span></span><br></pre></td></tr></table></figure>
 
-<p>步骤3:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build --report</span><br></pre></td></tr></table></figure>
+<p>从结果发现，PHP5.6的refcount发生了变化，数值增加了1，而PHP7.3的结果却没发生过变化，当我们增加变量引用时同样也不会发生变化 这是因为在PHP5.x版本中同一个变量容器被变量 a 和变量 b关联.当没必要时，php不会去复制已生成的变量容器。变量容器在”refcount“变成0时就被销毁，而在PHP7.x版本中，zval容器结构发生了更新。</p>
+<h2 id="Zval容器"><a href="#Zval容器" class="headerlink" title="Zval容器"></a>Zval容器</h2><p>PHP5.x版本的Zval容器：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">zval_struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">union</span> &#123;</span><br><span class="line">		<span class="keyword">long</span> lval;</span><br><span class="line">		<span class="keyword">double</span> dval;</span><br><span class="line">		<span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">			<span class="keyword">char</span> *val;</span><br><span class="line">			<span class="keyword">int</span> len;</span><br><span class="line">		&#125; str;</span><br><span class="line">		HashTable *ht;</span><br><span class="line">		zend_object_value obj;</span><br><span class="line">		zend_ast *ast;</span><br><span class="line">	&#125; value;</span><br><span class="line">	zend_uint refcount__gc;</span><br><span class="line">	zend_uchar type;</span><br><span class="line">	zend_uchar is_ref__gc;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>结果：<br><img src="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190830155242.png" alt></p>
-<p>通过结果我们不难发现，体积过大的文件有一下几个：</p>
+<p>PHP7.x版本的Zval容器：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">zval_struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">union</span> &#123;</span><br><span class="line">		zend_long         lval;             <span class="comment">/* long value */</span></span><br><span class="line">		<span class="keyword">double</span>            dval;             <span class="comment">/* double value */</span></span><br><span class="line">		zend_refcounted  *counted;</span><br><span class="line">		zend_string      *str;</span><br><span class="line">		zend_array       *arr;</span><br><span class="line">		zend_object      *obj;</span><br><span class="line">		zend_resource    *res;</span><br><span class="line">		zend_reference   *ref;</span><br><span class="line">		zend_ast_ref     *ast;</span><br><span class="line">		zval             *zv;</span><br><span class="line">		<span class="keyword">void</span>             *ptr;</span><br><span class="line">		zend_class_entry *ce;</span><br><span class="line">		zend_function    *func;</span><br><span class="line">		<span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">			<span class="keyword">uint32_t</span> w1;</span><br><span class="line">			<span class="keyword">uint32_t</span> w2;</span><br><span class="line">		&#125; ww;</span><br><span class="line">	&#125; value;</span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">            ZEND_ENDIAN_LOHI_4(</span><br><span class="line">                zend_uchar    type,         <span class="comment">/* active type */</span></span><br><span class="line">                zend_uchar    type_flags,</span><br><span class="line">                zend_uchar    const_flags,</span><br><span class="line">                zend_uchar    reserved)     <span class="comment">/* call info for EX(This) */</span></span><br><span class="line">        &#125; v;</span><br><span class="line">        <span class="keyword">uint32_t</span> type_info;</span><br><span class="line">    &#125; u1;</span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        <span class="keyword">uint32_t</span>     var_flags;</span><br><span class="line">        <span class="keyword">uint32_t</span>     next;                 <span class="comment">/* hash collision chain */</span></span><br><span class="line">        <span class="keyword">uint32_t</span>     cache_slot;           <span class="comment">/* literal cache slot */</span></span><br><span class="line">        <span class="keyword">uint32_t</span>     lineno;               <span class="comment">/* line number (for ast nodes) */</span></span><br><span class="line">        <span class="keyword">uint32_t</span>     num_args;             <span class="comment">/* arguments number for EX(This) */</span></span><br><span class="line">        <span class="keyword">uint32_t</span>     fe_pos;               <span class="comment">/* foreach position */</span></span><br><span class="line">        <span class="keyword">uint32_t</span>     fe_iter_idx;          <span class="comment">/* foreach iterator index */</span></span><br><span class="line">    &#125; u2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>一个全新的容器结构，对于该结构的详细描述可以参考鸟哥的文章，链接在 <a href="#引用文章">引用文章</a>中会放出来，对比PHP5.x，有几个重要的更新点：</p>
 <ol>
-<li>element-ui</li>
-<li>vue</li>
-<li>echarts</li>
-<li>xlsx</li>
-<li>tinymce</li>
-<li>vCharts</li>
+<li>PHP7 中的变量分为<strong>变量名</strong>和<strong>变量值</strong>两部分，分别对应 <code>zval_struct</code> 和在其中声明的 <code>value</code>*  </li>
 </ol>
-<h1 id="优化问题"><a href="#优化问题" class="headerlink" title="优化问题"></a>优化问题</h1><p>优化主要目的有：</p>
+<p>说明：这点并不难理解，每个新建的变量都有与其相对应的zval_struct容器，而变量值则存储于容器中的value</p>
+<p><img src="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190910092340.png" alt></p>
+<ol start="2">
+<li><code>zval_struct.value</code> 中的 <code>zend_long</code> 、<code>double</code> 都是<strong>简单数据类型</strong>，能够直接储存具体的值，而其他复杂数据类型储存一个指向其他数据结构的<strong>指针</strong></li>
+</ol>
+<p>说明:  <code>zend_long</code> 、<code>double</code>  即我们在 PHP 中的<strong>整形</strong>与<strong>浮点型</strong>, 对于 <code>zval</code> 在 <code>value</code> 字段中能保存下的值，就不会在对他们进行引用计数，<strong>而是在拷贝的时候直接赋值</strong></p>
+<ol start="3">
+<li>PHP7 中，引用计数器储存在 <code>value</code> 中而不是 <code>zval_struct</code></li>
+<li><strong>NULL</strong>、<strong>布尔型</strong>都属于<strong>没有值</strong>的数据类型（其中布尔型通过 <code>IS_FALSE</code> 和 <code>IS_TRUE</code> 两个常量来标记），自然也就没有引用计数</li>
+<li><strong>引用</strong>（REFERENCE）变为了一种数据结构而不再只是一个标记位了，它的结构如下：</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> _<span class="title">zend_reference</span> &#123;</span></span><br><span class="line">    zend_refcounted_h gc;</span><br><span class="line">    zval              val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p><code>zend_reference</code> 作为 <code>zval_struct</code> 中包含的一种 <code>value</code> 类型，也拥有自己的 <code>val</code> 值，这个值是指向一个 <code>zval_struct.value</code> 的。他们都拥有自己的<strong>引用计数器</strong>。</p>
+<p> 引用计数器用来记录当前有多少 <code>zval</code> 指向同一个 <code>zend_value</code>。</p>
+</li>
+</ol>
+<p>以上六点就是对zval容器的更新总结，而针对第六点，我们使用代码进行讲解：请看如下代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="string">'foo'</span>; </span><br><span class="line"></span><br><span class="line">$b = &amp;$a;</span><br><span class="line"></span><br><span class="line">$c = $a;</span><br><span class="line"></span><br><span class="line">xdebug_debug_zval(<span class="string">'a'</span>);</span><br><span class="line">xdebug_debug_zval(<span class="string">'b'</span>);</span><br><span class="line">xdebug_debug_zval(<span class="string">'c'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>$a 与 $b 各拥有一个 <code>zval_struct</code> 容器，并且其中的 <code>value</code> 都指向同一个 <code>zend_reference</code> 结构，<code>zend_reference</code> 内嵌一个 <code>val</code> 结构， 指向同一个 <code>zend_string</code>，<strong>字符串的内容</strong>就储存在其中。</p>
+<p>而 $c 也拥有一个 <code>zval_struct</code>，而它的 value 在初始化的时候可以直接指向上面提到的 <code>zend_string</code> ，这样在拷贝时就不会产生复制。</p>
+<p><img src="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190910094943.png" alt></p>
+<p>然后我们运行代码：</p>
+<p><img src="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190910095938.png" alt></p>
+<p>从图中不难发现，$a跟$b 的<code>refcount</code> 为2，$c为1，我们根据第五点以及第六点可以知道 $a跟$b都指向同一个 <code>zend_reference</code> 所以他们的refcount为2  而<code>zend_reference</code> 的结构包含gc 其gc 就是<code>_zend_refcounted_h</code>的结构体 主要作用是引用计数以及标记变量的类别</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">zend_refcounted_h</span> &#123;</span></span><br><span class="line">	<span class="keyword">uint32_t</span>         refcount;			<span class="comment">/* 引用计数 */</span></span><br><span class="line">	<span class="keyword">union</span> &#123;</span><br><span class="line">		<span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">			ZEND_ENDIAN_LOHI_3(</span><br><span class="line">				zend_uchar    type,     </span><br><span class="line">				zend_uchar    flags,    <span class="comment">/* 字符串的类型 */</span></span><br><span class="line">				<span class="keyword">uint16_t</span>      gc_info   <span class="comment">/* 垃圾回收信息 */</span></span><br><span class="line">			)</span><br><span class="line">		&#125; v;</span><br><span class="line">		<span class="keyword">uint32_t</span> type_info;</span><br><span class="line">	&#125; u;</span><br><span class="line">&#125; zend_refcounted_h;</span><br></pre></td></tr></table></figure>
+
+<p>现在让我们再来看一个例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="number">233</span>;</span><br><span class="line">$b= &amp;a;</span><br><span class="line"></span><br><span class="line">xdebug_debug_zval(<span class="string">'a'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这段代码相对于上面唯一不同点就是变量值为整数型，我们根据上面第二点可以得出，当<code>Value</code>为简单数据类型时 <code>zval_struct.value</code>能够直接储存具体的值，而按值拷贝时，会开辟一个新的 <code>zval_struct</code> 以同样的方式将值储存到相同数据类型的 value 中，所以 refcount 的值一直都会为 0。 其中整型就属于简单数据类型，那么我们猜测的结果应该是：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//猜测结果</span></span><br><span class="line">a: (refcount=<span class="number">0</span>, is_ref=<span class="number">1</span>)=<span class="number">123</span></span><br><span class="line">b: (refcount=<span class="number">0</span>, is_ref=<span class="number">1</span>)=<span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<p>然后实际结果：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实际结果</span></span><br><span class="line">a: (refcount=<span class="number">2</span>, is_ref=<span class="number">1</span>)=<span class="number">123</span></span><br><span class="line">b: (refcount=<span class="number">2</span>, is_ref=<span class="number">1</span>)=<span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<p>这是因为当使用 <code>&amp;</code> 操作符进行引用拷贝时，情况就不一样了：</p>
 <ol>
-<li>加快资源加载速度，减少用户等待的时间和首页白屏时间，提高用户体验。</li>
-<li>加快打包速度，不要将时间浪费在等待打包上。</li>
+<li>PHP 为 <code>&amp;</code> 操作符操作的变量申请一个 <code>zend_reference</code> 结构</li>
+<li>将 <code>zend_reference.value</code> 指向原来的 <code>zval_struct.value</code></li>
+<li><code>zval_struct.value</code> 的数据类型会被修改为 <code>zend_refrence</code></li>
+<li>将 <code>zval_struct.value</code> 指向刚刚申请并初始化后的 <code>zend_reference</code></li>
+<li>为新变量申请 <code>zval_struct</code> 结构，将他的 <code>value</code> 指向刚刚创建的 <code>zend_reference</code></li>
 </ol>
-<h2 id="更换CDN："><a href="#更换CDN：" class="headerlink" title="更换CDN："></a>更换CDN：</h2><p>解决第一个问题，很多人都会想到资源文件放在 CDN 上就好了，没错，这次我们就是通过 CDN 来解决加载问题。</p>
-<p>在 <code>index.html</code> 中引入 vue, element-ui tinymce echarts。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 同时也要引入对应版本的 css --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdn.bootcss.com/element-ui/2.3.2/theme-chalk/index.css"</span> <span class="attr">rel</span>=<span class="string">"external nofollow"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/v-charts/lib/style.min.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Vue-admin-template<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/tinymce4.7.5/tinymce.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 先引入 Vue --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.4.2/vue.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 引入组件库 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/element-ui/2.3.2/index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/element-ui/2.3.2/locale/zh-CN.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/echarts/3.7.0/echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/v-charts/lib/index.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/xlsx/0.15.1/cpexcel.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/xlsx/0.15.1/xlsx.core.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/v-charts/lib/style.min.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- built files will be auto injected --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此时：$var_int_1 和 $var_int_2 都拥有一个 <code>zval_struct</code> 结构体，并且他们的 <code>zval_struct.value</code> 都指向了同一个 <code>zend_reference</code> 结构，所以该结构的引用计数器的值为 2。</p>
+<p>还有一个需要注意的点，就是数组的引用计数也有一些特殊的地方，这牵扯到 PHP7 中的另一个概念，叫做 <code>immutable array</code>（不可变数组）<strong>不可变数组</strong>是 <code>opcache</code> 扩展优化出的一种数组类型，简单的说，所有多次编译结果恒定不变的数组，都会被优化为<strong>不可变数组</strong>，下面是一个反例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$array = [<span class="number">1</span>, <span class="number">2</span>, time()];</span><br></pre></td></tr></table></figure>
 
-<p>因为依赖是从外部引入的，所以需要告知 webpack 在打包时，依赖的来源。</p>
-<p>修改 <code>webpack.base.conf.js</code> 在最后一行加上一下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> externals: &#123;</span><br><span class="line">   vue: <span class="string">'Vue'</span>,</span><br><span class="line">   <span class="string">'element-ui'</span>:<span class="string">'ELEMENT'</span>,</span><br><span class="line">   <span class="string">"echarts"</span>: <span class="string">"echarts"</span>,</span><br><span class="line">   <span class="string">"vCharts"</span>: <span class="string">"v-charts"</span>,</span><br><span class="line">   <span class="string">'xlsx'</span>: <span class="string">"xlsx"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>删除所有引入/导入Vcharts , echarts, tinymce 的地方</p>
-<p>再次 npm run build –report </p>
-<p><img src="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190902113040.png" alt></p>
-<p>发现其打包文件体积比之前足足少了2MB，在实际开发过程中，可能会使用到其他的插件，我们可以根据插件来更换其CDN从而减少其打包体积大小，这样页面在加载的时候也会更快</p>
-<h2 id="服务器端开启-gzip"><a href="#服务器端开启-gzip" class="headerlink" title="服务器端开启 gzip"></a>服务器端开启 gzip</h2><p>使用 gzip 可以进一步压缩文件，使得服务器传递给浏览器的文件是经由压缩之后的，待浏览器收到之后再解压缩。要使用这一方式，需要服务器端的支持，这里以 Nginx 为例。</p>
-<p>在 <code>nginx.conf</code> 中，添加如下配置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gzip on;</span><br><span class="line">gzip_min_length 1k;</span><br><span class="line">gzip_buffers 4 16k;</span><br><span class="line"><span class="meta">#</span><span class="bash">gzip_http_version 1.0;</span></span><br><span class="line">gzip_comp_level 2;</span><br><span class="line">gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png application/javascript;</span><br><span class="line">gzip_vary off;</span><br></pre></td></tr></table></figure>
-
-<p>之后刷新页面（ 注意禁用缓存 ），观察 js、css 等资源文件的请求中是否包含 <code>Content-Encoding: gzip</code>，如果存在，则表明 gzip 已成功。</p>
-<p>注意，在 <code>gzip_types</code> 中规定了哪些请求类型会使用 gzip 进行压缩。对于没有使用 gzip 的资源文件，可将其 <code>Content-type</code> 类型加入 <code>gzip_types</code> 之中。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
-<li><a href="https://segmentfault.com/a/1190000008795113" target="_blank" rel="noopener">实例 PK ( Vue服务端渲染 VS Vue 浏览器端渲染 ) - segmentfault</a></li>
-<li><a href="https://segmentfault.com/q/1010000008832754" target="_blank" rel="noopener">使用vue-cli生成的vendor.js文件太大，有办法减少体积吗？ - segmentfault</a></li>
-<li><a href="http://jeffjade.com/2017/08/06/124-webpack-packge-optimization-for-volume/" target="_blank" rel="noopener">Webpack 打包优化之体积篇</a></li>
-<li><a href="https://www.npmjs.com/package/babel-plugin-lodash" target="_blank" rel="noopener">babel-plugin-lodash</a></li>
-<li><a href="http://www.cnblogs.com/mitang/p/4477220.html" target="_blank" rel="noopener">Nginx开启Gzip压缩大幅提高页面加载速度 - 博客园</a></li>
-<li><a href="http://www.cnblogs.com/youlechang123/p/5345852.html" target="_blank" rel="noopener">Nginx启用Gzip压缩js无效的原因 - 博客园</a></li>
-<li><a href="http://www.cnblogs.com/strinkbug/p/5786222.html" target="_blank" rel="noopener">Wabpack系列：在webpack+vue开发环境中使用echarts导致编译文件过大怎么办？ - 博客园</a></li>
-<li><a href="http://jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/" target="_blank" rel="noopener">Webpack 打包优化之速度篇</a></li>
-<li><a href="http://jeffjade.com/2017/03/11/120-how-to-write-vue-better/" target="_blank" rel="noopener">如何写一手漂亮的 Vue</a></li>
+<p>PHP 在编译阶段无法得知 <code>time()</code> 函数的返回值，所以此处的 $array 是<strong>可变数组</strong>。</p>
+<p><strong>不可变数组</strong>是<strong>不使用引用计数</strong>的，而不可变数组会使用一个<strong>伪计数值</strong> 2。</p>
+<p>以上是本人根据网上一些文章对<code>引用计数</code>的总结，毕竟网上的文章参差不齐，加上版本的差异性，在下一章将会讲解PHP的垃圾回收机制。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="https://juejin.im/post/5bbf50e86fb9a05ce02a9c19" target="_blank" rel="noopener">深入理解 PHP7 中全新的 zval 容器和引用计数机制</a></li>
+<li><a href="https://github.com/laruence/php7-internal/blob/master/zval.md" target="_blank" rel="noopener">深入理解PHP7之zval</a></li>
+<li><a href="https://stackoverflow.com/questions/34764119/confusion-about-php-7-refcount" target="_blank" rel="noopener">confusion about php-7 refcount</a></li>
+<li><a href="https://www.jianshu.com/p/53fcf6128dcd" target="_blank" rel="noopener">PHP引用变量机制(PHP如何处理变量)</a></li>
+<li><a href="https://blog.csdn.net/enoch612/article/details/82806820" target="_blank" rel="noopener">跟厂长学PHP7内核（八）：深入理解字符串的实现</a></li>
+<li><a href="http://docs.php.net/manual/zh/features.gc.refcounting-basics.php" target="_blank" rel="noopener">引用计数基本知识</a></li>
 </ol>
       
     </div>
@@ -645,7 +662,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/p/001b.html" title="记录一次关于Vue的打包调优过程">http://yoursite.com/p/001b.html</a>
+    <a href="http://yoursite.com/p/008a.html" title="详解PHP垃圾回收机制（上）">http://yoursite.com/p/008a.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -671,9 +688,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
-          
-            <a href="/tags/Webpack/" rel="tag"><i class="fa fa-tag"></i> Webpack</a>
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
           
         </div>
       
@@ -706,8 +721,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/p/005a.html" rel="next" title="PHP设计模式——建造者模式">
-                <i class="fa fa-chevron-left"></i> PHP设计模式——建造者模式
+              <a href="/p/007a.html" rel="next" title="关于PHP生成器Yield的使用（下）">
+                <i class="fa fa-chevron-left"></i> 关于PHP生成器Yield的使用（下）
               </a>
             
           </div>
@@ -715,10 +730,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/p/006a.html" rel="prev" title="关于PHP生成器Yield的使用（上）">
-                关于PHP生成器Yield的使用（上） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -923,7 +934,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分析问题"><span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化问题"><span class="nav-text">优化问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更换CDN："><span class="nav-text">更换CDN：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器端开启-gzip"><span class="nav-text">服务器端开启 gzip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言-1"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用计数基本知识"><span class="nav-text">引用计数基本知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zval容器"><span class="nav-text">Zval容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
