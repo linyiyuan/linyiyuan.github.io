@@ -137,7 +137,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190907150407.png">
 <meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190907154456.png">
-<meta property="og:updated_time" content="2019-09-07T09:32:39.903Z">
+<meta property="og:updated_time" content="2019-09-11T10:09:28.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于PHP生成器Yield的使用（上）">
 <meta name="twitter:description" content="PHP的Yield 关键字是php5.5版本推出的一个特性，算是比较古老的了，其他很多语言中也有类似的特性存在。但是在实际的项目中，目前用到还比较少。网上相关的文章最出名的就是鸟哥的那篇了，下面为大家介绍这一强大的神器">
@@ -445,13 +445,23 @@
                 
               
 
-              <time title="创建时间：2019-09-07 15:42:45 / 修改时间：17:32:39" itemprop="dateCreated datePublished" datetime="2019-09-07T15:42:45+08:00">2019-09-07</time>
+              <time title="创建时间：2019-09-07 15:42:45" itemprop="dateCreated datePublished" datetime="2019-09-07T15:42:45+08:00">2019-09-07</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-11 18:09:28" itemprop="dateModified" datetime="2019-09-11T18:09:28+08:00">2019-09-11</time>
+              </span>
             
           
 
@@ -551,13 +561,13 @@
 <li>getrusage():返回CUP使用情况</li>
 </ol>
 <p>我们在日常开发中可以使用这些内置函数来调试PHP代码性能。但需要注意的是这几个函数只能在linux系统中使用</p>
-<p>在认识以上三个函数之后我们来做一个简单的小测, 我们迭代数组一个1-10000的数组</p>
+<p>在认识以上三个函数之后我们来做一个简单的小测, 我们迭代数组一个1-1000的数组</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$start_memory = memory_get_usage();</span><br><span class="line"></span><br><span class="line">$numberArr = range(<span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line"><span class="keyword">foreach</span>($numberArr <span class="keyword">as</span> $key) &#123;</span><br><span class="line">  <span class="comment">//echo $key;</span></span><br><span class="line">&#125;</span><br><span class="line">$end_memory = memory_get_usage();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'运行该迭代数组所耗内存：'</span>  . ($end_memory - $start_memory) . <span class="string">'bytes'</span>;</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
 <pre><code>运行该迭代数组所耗内存：528440 bytes</code></pre><p>折算成kb单位就是大概是528kb, 这样一看并没觉得什么，这时候我们继续增大数组范围，我们将范围扩大成1-1000000</p>
 <p>运行结果：</p>
-<pre><code>运行该迭代数组所耗内存：4198480 bytes</code></pre><p>大概是4m左右，这时候还是可以遍历得出来，我们继续增大1-1000000</p>
+<pre><code>运行该迭代数组所耗内存：4198480 bytes</code></pre><p>大概是4m左右，这时候还是可以遍历得出来，我们继续增大1-10000000</p>
 <p>运行结果：</p>
 <p><strong>Fatal error</strong>: Allowed memory size of 134217728 bytes exhausted (tried to allocate 536870920 bytes) in <strong>/data/default/index.php</strong> on line <strong>11</strong></p>
 <p>发现报错了，系统提示内存溢出了 134217728 bytes 大概是134MB, 我们再查看一下PHP配置文件</p>
