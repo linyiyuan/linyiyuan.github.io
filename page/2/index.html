@@ -127,18 +127,17 @@
   };
 </script>
 
-  <meta name="description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
-<meta name="keywords" content="Mysql">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mysql 的事务四个特性以及事务的四个隔离级别">
-<meta property="og:url" content="http://yoursite.com/p/581a.html">
+  <meta name="description" content="喜欢悠闲独自在">
+<meta name="keywords" content="Choice→選の博客 Choice→選 林益远">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Choice→選の博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
+<meta property="og:description" content="喜欢悠闲独自在">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T04:36:47.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql 的事务四个特性以及事务的四个隔离级别">
-<meta name="twitter:description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
+<meta name="twitter:title" content="Choice→選の博客">
+<meta name="twitter:description" content="喜欢悠闲独自在">
 
 
 
@@ -148,7 +147,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/p/581a">
+  <link rel="canonical" href="http://yoursite.com/page/2/">
 
 
 
@@ -159,7 +158,7 @@
 </script>
 
   
-  <title>Mysql 的事务四个特性以及事务的四个隔离级别 | Choice→選の博客</title>
+  <title>Choice→選の博客</title>
   
 
 
@@ -207,7 +206,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -382,9 +382,9 @@
           
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -416,8 +416,10 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql 的事务四个特性以及事务的四个隔离级别
-
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/p/581a.html" class="post-title-link" itemprop="url">Mysql 的事务四个特性以及事务的四个隔离级别</a>
               
             
           </h1>
@@ -500,14 +502,6 @@
           
 
           
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-                 阅读次数： 
-                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-              </span>
-            </span>
-          
 
           
 
@@ -551,41 +545,26 @@
       
 
       
-        <h1 id="mysql的事务四个特性以及事务的四个隔离级别"><a href="#mysql的事务四个特性以及事务的四个隔离级别" class="headerlink" title="mysql的事务四个特性以及事务的四个隔离级别"></a>mysql的事务四个特性以及事务的四个隔离级别</h1><p>=======================</p>
-<p>事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。</p>
-<h2 id="事务的四大特性（ACID）"><a href="#事务的四大特性（ACID）" class="headerlink" title="事务的四大特性（ACID）"></a>事务的四大特性（ACID）</h2><ul>
-<li>原子性（atomicity）：一个事务必须视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性。</li>
-<li>一致性（consistency）：数据库总数从一个一致性的状态转换到另一个一致性的状态。</li>
-<li>隔离性（isolation）：一个事务所做的修改在最终提交以前，对其他事务是不可见的。</li>
-<li>持久性（durability）：一旦事务提交，则其所做的修改就会永久保存到数据库中。此时即使系统崩溃，修改的数据也不会丢失。</li>
-</ul>
-<p>数据库事务的隔离级别有4种，由低到高分别为Read uncommitted 、Read committed 、Repeatable read 、Serializable 。而且，在事务的并发操作中可能会出现脏读，不可重复读，幻读。下面通过事例一一阐述它们的概念与联系。</p>
-<h2 id="事务的四种隔离级别"><a href="#事务的四种隔离级别" class="headerlink" title="事务的四种隔离级别"></a>事务的四种隔离级别</h2><h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>读未提交，顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
-<p>事例：老板要给程序员发工资，程序员的工资是3.6万/月。但是发工资时老板不小心按错了数字，按成3.9万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了3千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成3.6万再提交。</p>
-<p>分析：实际程序员这个月的工资还是3.6万，但是程序员看到的是3.9万。他看到的是老板还没提交事务时的数据。这就是脏读。</p>
-<p><code>那怎么解决脏读呢？Read committed！读提交，能解决脏读问题。</code></p>
-<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>读提交，顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
-<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有3.6万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</p>
-<p>分析：这就是读提交，若有事务对数据进行更新（UPDATE）操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</p>
-<p><code>那怎么解决可能的不可重复读问题？Repeatable read ！</code></p>
-<h3 id="Repeatable-read"><a href="#Repeatable-read" class="headerlink" title="Repeatable read"></a>Repeatable read</h3><p>重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</p>
-<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（事务开启，不允许其他事务的UPDATE修改操作），收费系统事先检测到他的卡里有3.6万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</p>
-<p>分析：重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即UPDATE操作。但是可能还会有幻读问题。因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作。</p>
-<p>什么时候会出现幻读？</p>
-<p>事例：程序员某一天去消费，花了2千元，然后他的妻子去查看他今天的消费记录（全表扫描FTS，妻子事务开启），看到确实是花了2千元，就在这个时候，程序员花了1万买了一部电脑，即新增INSERT了一条消费记录，并提交。当妻子打印程序员的消费记录清单时（妻子事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。</p>
-<p><code>那怎么解决幻读问题？Serializable！</code></p>
-<h3 id="Serializable-序列化"><a href="#Serializable-序列化" class="headerlink" title="Serializable 序列化"></a>Serializable 序列化</h3><p>Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p>
-<p><code>值得一提的是：大多数数据库默认的事务隔离级别是Read committed，比如Sql Server , Oracle。MySQL的默认隔离级别是Repeatable read</code></p>
-<hr>
-<p>作者：csdnxingyuntian 来源：CSDN 原文：<a href="https://blog.csdn.net/csdnxingyuntian/article/details/57081233" target="_blank" rel="noopener">https://blog.csdn.net/csdnxingyuntian/article/details/57081233</a>版权声明：本文为博主原创文章，转载请附上博文链接！<br>a</p>
+        
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563878149907&di=d54d657f25322e307ee5dadeb164a1c9&imgtype=0&src=http%3A%2F%2Fimg.draveness.me%2Fmysql.png" style="width:900px;height:400px">
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/p/581a.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
       
     </div>
 
     
 
     
-      
-    
 
     
     
@@ -598,97 +577,22 @@
     
     
 
-    
-      <div>
-        
-
-
-
-
-  
-
-
-
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者： </strong>林益远</li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    
-    <a href="http://yoursite.com/p/581a.html" title="Mysql 的事务四个特性以及事务的四个隔离级别">http://yoursite.com/p/581a.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
-</ul>
-
-      </div>
     
 
     <div>
-      
-        <div>
-    
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
-    
-</div>
       
     </div>
 
     <footer class="post-footer">
       
-        
-          
-        
-        <div class="post-tags">
-          
-            <a href="/tags/Mysql/" rel="tag"><i class="fa fa-tag"></i> Mysql</a>
-          
-        </div>
+
+      
+
       
 
       
       
-        <div class="post-widgets">
-        
-
-        
-
-        
-          
-          <div class="social_share">
-            
-            
-              <div id="needsharebutton-postbottom">
-                <span class="btn">
-                  <i class="fa fa-share-alt" aria-hidden="true"></i>
-                </span>
-              </div>
-            
-          </div>
-        
-        </div>
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/p/001a.html" rel="prev" title="初步理解JWT">
-                初步理解JWT <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -698,19 +602,18 @@
   </article>
 
 
-  </div>
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
 
 
           </div>
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-
-  
-
-
 
         </div>
         
@@ -730,17 +633,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -878,23 +772,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql的事务四个特性以及事务的四个隔离级别"><span class="nav-text">mysql的事务四个特性以及事务的四个隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四大特性（ACID）"><span class="nav-text">事务的四大特性（ACID）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四种隔离级别"><span class="nav-text">事务的四种隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-uncommitted"><span class="nav-text">Read uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-committed"><span class="nav-text">Read committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-read"><span class="nav-text">Repeatable read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable-序列化"><span class="nav-text">Serializable 序列化</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
@@ -1110,10 +987,6 @@
 
 
   
-  <script src="/js/scrollspy.js?v=7.2.0"></script>
-<script src="/js/post-details.js?v=7.2.0"></script>
-
-
 
   <script src="/js/next-boot.js?v=7.2.0"></script>
 
@@ -1160,8 +1033,6 @@
 
 
 
-
-  
 
 
 

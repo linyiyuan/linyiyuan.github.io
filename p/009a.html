@@ -127,18 +127,21 @@
   };
 </script>
 
-  <meta name="description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
-<meta name="keywords" content="Mysql">
+  <meta name="description" content="导言在小编的《深入理解PHP7变量的内部实现》文章中，我们大概理解了变量的一个结构组成，并且也学习了引用计数相关知识点和变量的回收，这篇文章我们将会详细带大家理解关于PHP7的垃圾回收机制.">
+<meta name="keywords" content="PHP,PHP源码解析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql 的事务四个特性以及事务的四个隔离级别">
-<meta property="og:url" content="http://yoursite.com/p/581a.html">
+<meta property="og:title" content="你必须了解的PHP7垃圾回收机制">
+<meta property="og:url" content="http://yoursite.com/p/009a.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
+<meta property="og:description" content="导言在小编的《深入理解PHP7变量的内部实现》文章中，我们大概理解了变量的一个结构组成，并且也学习了引用计数相关知识点和变量的回收，这篇文章我们将会详细带大家理解关于PHP7的垃圾回收机制.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T04:36:47.241Z">
+<meta property="og:image" content="http://images.linyiyuan.top/gc_1.png">
+<meta property="og:image" content="http://images.linyiyuan.top/gc_2.png">
+<meta property="og:updated_time" content="2019-09-11T08:43:49.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql 的事务四个特性以及事务的四个隔离级别">
-<meta name="twitter:description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
+<meta name="twitter:title" content="你必须了解的PHP7垃圾回收机制">
+<meta name="twitter:description" content="导言在小编的《深入理解PHP7变量的内部实现》文章中，我们大概理解了变量的一个结构组成，并且也学习了引用计数相关知识点和变量的回收，这篇文章我们将会详细带大家理解关于PHP7的垃圾回收机制.">
+<meta name="twitter:image" content="http://images.linyiyuan.top/gc_1.png">
 
 
 
@@ -148,7 +151,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/p/581a">
+  <link rel="canonical" href="http://yoursite.com/p/009a">
 
 
 
@@ -159,7 +162,7 @@
 </script>
 
   
-  <title>Mysql 的事务四个特性以及事务的四个隔离级别 | Choice→選の博客</title>
+  <title>你必须了解的PHP7垃圾回收机制 | Choice→選の博客</title>
   
 
 
@@ -399,7 +402,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/581a.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/009a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林益远">
@@ -416,7 +419,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql 的事务四个特性以及事务的四个隔离级别
+          <h1 class="post-title" itemprop="name headline">你必须了解的PHP7垃圾回收机制
 
               
             
@@ -442,23 +445,13 @@
                 
               
 
-              <time title="创建时间：2019-07-23 14:37:57" itemprop="dateCreated datePublished" datetime="2019-07-23T14:37:57+08:00">2019-07-23</time>
+              <time title="创建时间：2019-09-11 16:22:15 / 修改时间：16:43:49" itemprop="dateCreated datePublished" datetime="2019-09-11T16:22:15+08:00">2019-09-11</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-24 12:36:47" itemprop="dateModified" datetime="2019-07-24T12:36:47+08:00">2019-07-24</time>
-              </span>
             
           
 
@@ -471,7 +464,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
 
                 
                 
@@ -489,8 +482,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/p/581a.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/p/581a.html" itemprop="commentCount"></span>
+                <a href="/p/009a.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/p/009a.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -520,7 +513,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.2k</span>
+              <span title="本文字数">2.9k</span>
             </span>
           
 
@@ -532,7 +525,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">4 分钟</span>
+              <span title="阅读时长">5 分钟</span>
             </span>
           
 
@@ -551,33 +544,51 @@
       
 
       
-        <h1 id="mysql的事务四个特性以及事务的四个隔离级别"><a href="#mysql的事务四个特性以及事务的四个隔离级别" class="headerlink" title="mysql的事务四个特性以及事务的四个隔离级别"></a>mysql的事务四个特性以及事务的四个隔离级别</h1><p>=======================</p>
-<p>事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。</p>
-<h2 id="事务的四大特性（ACID）"><a href="#事务的四大特性（ACID）" class="headerlink" title="事务的四大特性（ACID）"></a>事务的四大特性（ACID）</h2><ul>
-<li>原子性（atomicity）：一个事务必须视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性。</li>
-<li>一致性（consistency）：数据库总数从一个一致性的状态转换到另一个一致性的状态。</li>
-<li>隔离性（isolation）：一个事务所做的修改在最终提交以前，对其他事务是不可见的。</li>
-<li>持久性（durability）：一旦事务提交，则其所做的修改就会永久保存到数据库中。此时即使系统崩溃，修改的数据也不会丢失。</li>
-</ul>
-<p>数据库事务的隔离级别有4种，由低到高分别为Read uncommitted 、Read committed 、Repeatable read 、Serializable 。而且，在事务的并发操作中可能会出现脏读，不可重复读，幻读。下面通过事例一一阐述它们的概念与联系。</p>
-<h2 id="事务的四种隔离级别"><a href="#事务的四种隔离级别" class="headerlink" title="事务的四种隔离级别"></a>事务的四种隔离级别</h2><h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>读未提交，顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
-<p>事例：老板要给程序员发工资，程序员的工资是3.6万/月。但是发工资时老板不小心按错了数字，按成3.9万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了3千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成3.6万再提交。</p>
-<p>分析：实际程序员这个月的工资还是3.6万，但是程序员看到的是3.9万。他看到的是老板还没提交事务时的数据。这就是脏读。</p>
-<p><code>那怎么解决脏读呢？Read committed！读提交，能解决脏读问题。</code></p>
-<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>读提交，顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
-<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有3.6万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</p>
-<p>分析：这就是读提交，若有事务对数据进行更新（UPDATE）操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</p>
-<p><code>那怎么解决可能的不可重复读问题？Repeatable read ！</code></p>
-<h3 id="Repeatable-read"><a href="#Repeatable-read" class="headerlink" title="Repeatable read"></a>Repeatable read</h3><p>重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</p>
-<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（事务开启，不允许其他事务的UPDATE修改操作），收费系统事先检测到他的卡里有3.6万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</p>
-<p>分析：重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即UPDATE操作。但是可能还会有幻读问题。因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作。</p>
-<p>什么时候会出现幻读？</p>
-<p>事例：程序员某一天去消费，花了2千元，然后他的妻子去查看他今天的消费记录（全表扫描FTS，妻子事务开启），看到确实是花了2千元，就在这个时候，程序员花了1万买了一部电脑，即新增INSERT了一条消费记录，并提交。当妻子打印程序员的消费记录清单时（妻子事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。</p>
-<p><code>那怎么解决幻读问题？Serializable！</code></p>
-<h3 id="Serializable-序列化"><a href="#Serializable-序列化" class="headerlink" title="Serializable 序列化"></a>Serializable 序列化</h3><p>Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p>
-<p><code>值得一提的是：大多数数据库默认的事务隔离级别是Read committed，比如Sql Server , Oracle。MySQL的默认隔离级别是Repeatable read</code></p>
-<hr>
-<p>作者：csdnxingyuntian 来源：CSDN 原文：<a href="https://blog.csdn.net/csdnxingyuntian/article/details/57081233" target="_blank" rel="noopener">https://blog.csdn.net/csdnxingyuntian/article/details/57081233</a>版权声明：本文为博主原创文章，转载请附上博文链接！<br>a</p>
+        <h1 id="1-垃圾的产生"><a href="#1-垃圾的产生" class="headerlink" title="1. 垃圾的产生"></a>1. 垃圾的产生</h1><p>我们PHP的变量都是基于<code>引用计数</code>这个机制来进行一个变量回收，当变量赋值、传递时并不会直接硬拷贝，而是增加value的引用数，unset、return等释放变量时再减掉引用数，减掉后如果发现refcount变为0则直接释放value，这是变量的基本gc过程，但是还存在着一种情况是这种机制无法解决的，由这种情况产生的垃圾无法被回收导致内存始终得不到释放。这种情况就是循环引用，我们先来看一个官方例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = [<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">$a[] = &amp;$a;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">unset</span>($a);</span><br></pre></td></tr></table></figure>
+
+<p>这是一个数据循环引用的例子， 首先我们申明一个变量<code>$a</code> 并赋值一个数组<code>[1]</code> ，紧接着我们给<code>$a</code>数组元素赋值，而这个值又是引用自己, 即变量 a 变成了自己引用自己.</p>
+<p><img src="http://images.linyiyuan.top/gc_1.png" alt></p>
+<p>此时<code>zend_reference</code>的refcount(引用次数) 为 2, 然后我们现在unset($a)</p>
+<p><img src="http://images.linyiyuan.top/gc_2.png" alt></p>
+<p>从图中可以看到 <code>unset($a)</code> 之后 <code>zend_reference</code> 结构体的引用计数减 1，但是仍然大于 0，此时是无法通过正常的gc机制回收的，但是$a已经已经没有任何外部引用了，所以这种变量就是垃圾，垃圾回收器要处理的就是这种情况，对此不处理的话，就可能会造成内存泄露。这里就需要垃圾收集器将这部分收集到缓冲区，之后进行回收处理。<br>这里明确两个准则：</p>
+<blockquote>
+<blockquote>
+<ol>
+<li>如果一个变量value的refcount减少到0， 那么此value可以被释放掉，不属于垃圾</li>
+</ol>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ol>
+<li>如果一个变量value的refcount减少之后大于0，那么此zval还不能被释放，此zval可能成为一个垃圾</li>
+</ol>
+</blockquote>
+</blockquote>
+<p>针对第一个情况GC不会处理，只有第二种情况GC才会将变量收集起来。另外变量是否加入垃圾检查buffer并不是根据zval的类型判断的，而是与前面介绍的是否用到引用计数一样通过<code>zval.u1.type_flag</code>记录的，只有包含<code>IS_TYPE_COLLECTABLE</code>的变量才会被GC收集。</p>
+<p>目前垃圾只会出现在array、object两种类型中，数组的情况上面已经介绍了，object的情况则是成员属性引用对象本身导致的，其它类型不会出现这种变量中的成员引用变量自身的情况，所以垃圾回收只会处理这两种类型的变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define IS_TYPE_COLLECTABLE</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">|     type       | collectable |</span><br><span class="line">+----------------+-------------+</span><br><span class="line">|simple types    |             |</span><br><span class="line">|string          |             |</span><br><span class="line">|interned string |             |</span><br><span class="line">|array           |      Y      |</span><br><span class="line">|immutable array |             |</span><br><span class="line">|object          |      Y      |</span><br><span class="line">|resource        |             |</span><br><span class="line">|reference       |             |</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-回收过程"><a href="#2-回收过程" class="headerlink" title="2. 回收过程"></a>2. 回收过程</h1><p>如果当变量的<code>refcount</code>减少后大于0，PHP并不会立即进行对这个变量进行垃圾鉴定，而是放入一个缓冲buffer中，等这个buffer满了以后(10000个值)再统一进行处理，加入buffer的是变量zend_value的<code>zend_refcounted_h</code>:</p>
+<p>zend_refcounted_h 结构如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">zend_refcounted_h</span> &#123;</span></span><br><span class="line">    <span class="keyword">uint32_t</span>         refcount; <span class="comment">// 记录 zend_value 的引用数</span></span><br><span class="line">    <span class="keyword">union</span> &#123;</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">            zend_uchar    type,  <span class="comment">// zend_value的类型, 与zval.u1.type一致</span></span><br><span class="line">            zend_uchar    flags, </span><br><span class="line">            <span class="keyword">uint16_t</span>      gc_info <span class="comment">// GC信息，记录在 gc 池中的位置和颜色，垃圾回收的过程会用到</span></span><br><span class="line">        &#125; v;</span><br><span class="line">        <span class="keyword">uint32_t</span> type_info;</span><br><span class="line">    &#125; u;</span><br><span class="line">&#125; zend_refcounted_h;</span><br></pre></td></tr></table></figure>
+
+<p>一个变量只能加入一次buffer，为了防止重复加入，变量加入后会把<code>zend_refcounted_h.gc_info</code>置为<code>GC_PURPLE</code>，即标为紫色，下次refcount减少时如果发现已经加入过了则不再重复插入。垃圾缓存区是一个双向链表，等到缓存区满了以后则启动垃圾检查过程：遍历缓存区，再对当前变量的所有成员进行遍历，然后把成员的refcount减1(如果成员还包含子成员则也进行递归遍历，其实就是深度优先的遍历)，最后再检查当前变量的引用，如果减为了0则为垃圾。这个算法的原理很简单，垃圾是由于成员引用自身导致的，那么就对所有的成员减一遍引用，结果如果发现变量本身refcount变为了0则就表明其引用全部来自自身成员。具体的过程如下：</p>
+<p>(1) 从buffer链表的roots开始遍历，把当前value标为灰色(zend_refcounted_h.gc_info置为GC_GREY)，然后对当前value的成员进行深度优先遍历，把成员value的refcount减1，并且也标为灰色；</p>
+<p>(2) 重复遍历buffer链表，检查当前value引用是否为0，为0则表示确实是垃圾，把它标为白色(GC_WHITE)，如果不为0则排除了引用全部来自自身成员的可能，表示还有外部的引用，并不是垃圾，这时候因为步骤(1)对成员进行了refcount减1操作，需要再还原回去，对所有成员进行深度遍历，把成员refcount加1，同时标为黑色；</p>
+<p>(3) 再次遍历buffer链表，将非GC_WHITE的节点从roots链表中删除，最终roots链表中全部为真正的垃圾，最后将这些垃圾清除。</p>
+<p>以上就是我对PHP垃圾回收机制的一些理解总结，大部分内容都是来《PHP内核解析》，关于垃圾收集的内部实现 如果有兴趣想了解的话可以去阅读《PHP内核解析》，因为里面基本都是基于C语言的一些算法，本文章只是大概总结PHP垃圾回收机制的一些知识点，底层的一些算法实现不给予总结。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ol>
+<li><a href="https://github.com/pangudashu/php7-internal/blob/master/2/zval.md" target="_blank" rel="noopener">PHP内核解析之变量的内部实现</a></li>
+<li><a href="https://github.com/pangudashu/php7-internal/blob/master/5/gc.md" target="_blank" rel="noopener">PHP内核解析之垃圾回收</a></li>
+<li><a href="https://juejin.im/post/5bbf50e86fb9a05ce02a9c19" target="_blank" rel="noopener">深入理解 PHP7 中全新的 zval 容器和引用计数机制</a></li>
+<li><a href="https://github.com/pangudashu/php7-internal/blob/master/2/zval.md" target="_blank" rel="noopener">PHP内核解析之变量的内部实现</a></li>
+<li><a href="https://learnku.com/articles/33451" target="_blank" rel="noopener">浅析 PHP7 的垃圾回收机制</a></li>
+<li><a href="https://segmentfault.com/q/1010000000624583" target="_blank" rel="noopener">PHP垃圾回收机制</a></li>
+</ol>
       
     </div>
 
@@ -615,7 +626,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/p/581a.html" title="Mysql 的事务四个特性以及事务的四个隔离级别">http://yoursite.com/p/581a.html</a>
+    <a href="http://yoursite.com/p/009a.html" title="你必须了解的PHP7垃圾回收机制">http://yoursite.com/p/009a.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -641,7 +652,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Mysql/" rel="tag"><i class="fa fa-tag"></i> Mysql</a>
+            <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+          
+            <a href="/tags/PHP源码解析/" rel="tag"><i class="fa fa-tag"></i> PHP源码解析</a>
           
         </div>
       
@@ -674,15 +687,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/p/008a.html" rel="next" title="深入理解PHP7变量的内部实现">
+                <i class="fa fa-chevron-left"></i> 深入理解PHP7变量的内部实现
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/p/001a.html" rel="prev" title="初步理解JWT">
-                初步理解JWT <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -889,7 +902,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql的事务四个特性以及事务的四个隔离级别"><span class="nav-text">mysql的事务四个特性以及事务的四个隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四大特性（ACID）"><span class="nav-text">事务的四大特性（ACID）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四种隔离级别"><span class="nav-text">事务的四种隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-uncommitted"><span class="nav-text">Read uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-committed"><span class="nav-text">Read committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-read"><span class="nav-text">Repeatable read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable-序列化"><span class="nav-text">Serializable 序列化</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-垃圾的产生"><span class="nav-text">1. 垃圾的产生</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-回收过程"><span class="nav-text">2. 回收过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
