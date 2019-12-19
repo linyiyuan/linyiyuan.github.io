@@ -127,17 +127,18 @@
   };
 </script>
 
-  <meta name="description" content="喜欢悠闲独自在">
-<meta name="keywords" content="Choice→選の博客 Choice→選 林益远">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Choice→選の博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/12/index.html">
+  <meta name="description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
+<meta name="keywords" content="Linux,工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《工具篇》-- 使用supervisor来管理Linux的后台进程">
+<meta property="og:url" content="http://yoursite.com/p/200a.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="喜欢悠闲独自在">
+<meta property="og:description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-19T09:59:48.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Choice→選の博客">
-<meta name="twitter:description" content="喜欢悠闲独自在">
+<meta name="twitter:title" content="《工具篇》-- 使用supervisor来管理Linux的后台进程">
+<meta name="twitter:description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
 
 
 
@@ -147,7 +148,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/archives/2019/12/">
+  <link rel="canonical" href="http://yoursite.com/p/200a">
 
 
 
@@ -158,7 +159,7 @@
 </script>
 
   
-  <title>归档 | Choice→選の博客</title>
+  <title>《工具篇》-- 使用supervisor来管理Linux的后台进程 | Choice→選の博客</title>
   
 
 
@@ -206,7 +207,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -312,7 +313,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -378,139 +379,342 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/200a.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="林益远">
+      <meta itemprop="description" content="喜欢悠闲独自在">
+      <meta itemprop="image" content="http://images.linyiyuan.top/298727667a9fe347e8f7b632ad7d9c7b.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Choice→選の博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《工具篇》-- 使用supervisor来管理Linux的后台进程
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-19 16:36:25 / 修改时间：17:59:48" itemprop="dateCreated datePublished" datetime="2019-12-19T16:36:25+08:00">2019-12-19</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/p/200a.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/p/200a.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+                 阅读次数： 
+                <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              </span>
+            </span>
+          
+
+          
+
+          <br>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">2.8k</span>
+            </span>
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">5 分钟</span>
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-      <span class="archive-page-counter">
+      
+
+      
+        <h2 id="Supervisor-介绍"><a href="#Supervisor-介绍" class="headerlink" title="Supervisor 介绍"></a>Supervisor 介绍</h2><p><code>Supervisor</code> 是一个进程管理工具，当进程中断的使用<code>Supervisor</code>能自动重新启动它，该工具使用<code>Python</code>语言开发，支持Linux/Unix系统，不支持Windows系统，它可以很方便的监听、启动、停止、重启一个或多个进程。</p>
+<h2 id="Supervisor-安装"><a href="#Supervisor-安装" class="headerlink" title="Supervisor 安装"></a>Supervisor 安装</h2><p>以下安装均在<code>Ubuntu16.04</code>系统下进行</p>
+<ol>
+<li>安装 <code>Python</code></li>
+</ol>
+<p>由于<code>Supervisor</code>是由<code>Python</code>语言开发，自然而然我们的系统就需要安装<code>Python</code>语言环境, 一般情况下<code>Ubuntu</code>都自带<code>Python</code>语言环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python3.7</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装<code>Supervisor</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install supervisor</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后 运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services supervisor status</span><br></pre></td></tr></table></figure>
+
+<p>查看<code>supervisor</code> 运行状态</p>
+<h2 id="Supervisor-配置"><a href="#Supervisor-配置" class="headerlink" title="Supervisor 配置"></a>Supervisor 配置</h2><p>首先查看<code>Supervisor</code> 的主配置文件，一般文件位于<code>/etc/supervisor/</code>目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  vim /etc/supervisor/supervisord.conf</span><br><span class="line"></span><br><span class="line">//文件内容</span><br><span class="line">; supervisor config file </span><br><span class="line">[unix_http_server]</span><br><span class="line">file=/var/run/supervisor.sock   ; (the path to the socket file)</span><br><span class="line">chmod=0700                       ; sockef file mode (default 0700)</span><br><span class="line"></span><br><span class="line">[supervisord]</span><br><span class="line">logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)</span><br><span class="line">pidfile=/var/run/supervisord.pid ; (supervisord pidfile;default supervisord.pid)</span><br><span class="line">childlogdir=/var/log/supervisor            ; ('AUTO' child log dir, default $TEMP)</span><br><span class="line"></span><br><span class="line">; the below section must remain in the config file for RPC</span><br><span class="line">; (supervisorctl/web interface) to work, additional interfaces may be</span><br><span class="line">; added by defining them in separate rpcinterface: sections</span><br><span class="line">[rpcinterface:supervisor]</span><br><span class="line">supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface</span><br><span class="line"></span><br><span class="line">[supervisorctl]</span><br><span class="line">serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket</span><br><span class="line"></span><br><span class="line">; The [include] section can just contain the "files" setting.  This</span><br><span class="line">; setting can list multiple files (separated by whitespace or</span><br><span class="line">; newlines).  It can also contain wildcards.  The filenames are</span><br><span class="line">; interpreted as relative to this file.  Included files *cannot*</span><br><span class="line">; include files themselves.</span><br><span class="line"></span><br><span class="line">[include]</span><br><span class="line">files = /etc/supervisor/conf.d/*.conf</span><br></pre></td></tr></table></figure>
+
+<p>从配置文件最后一行可以看出子配置文件位于<code>/etc/supervisor/conf.d/</code>  目录下，如果没有则新建相应目录即可，我们打开该目录下<code>conf.d</code>目录并新建一个文件 <code>test.conf</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim test.conf</span><br></pre></td></tr></table></figure>
+
+<p>并写入以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:websocket]</span><br><span class="line">command= //需要被监听的进程路径</span><br><span class="line">autostart=true  //是否随着supervisord的启动而启动</span><br><span class="line">autorestart=unexpected //是否自动重启</span><br><span class="line">exitcodes=0 //正常退出代码</span><br><span class="line">stopsignal=KILL //用来杀死进程的信号</span><br><span class="line">user=root //执行命令用户</span><br><span class="line">redirect_stderr=true //重定向stderr到stdout</span><br><span class="line">stdout_logfile= //日志路径</span><br></pre></td></tr></table></figure>
+
+<p>紧接着我们重启 <code>Supervisor</code> 服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service supervisor restart</span><br></pre></td></tr></table></figure>
+
+<p><code>Supervisord</code>启动成功后，可以通过<code>Supervisorct</code>l客户端控制进程，启动、停止、重启。运行<code>supervisorctl</code>命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-2-ubuntu:/etc/supervisor/conf.d# supervisorctl </span><br><span class="line">test  RUNNING   pid 16350, uptime 1:20:44</span><br><span class="line"><span class="meta">supervisor&gt;</span> status</span><br><span class="line">test  RUNNING   pid 16350, uptime 1:20:45</span><br><span class="line"><span class="meta">supervisor&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后我们可以看到我们监听的进程<code>test</code>已经 在运行了，我们可以通过以下命令对其进行控制：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart &lt;application name&gt; ;重启指定应用</span><br><span class="line">supervisorctl stop &lt;application name&gt; ;停止指定应用</span><br><span class="line">supervisorctl start &lt;application name&gt; ;启动指定应用</span><br><span class="line">supervisorctl restart all ;重启所有应用</span><br><span class="line">supervisorctl stop all ;停止所有应用</span><br><span class="line">supervisorctl start all ;启动所有应用</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
+<li><a href="https://www.cnblogs.com/redirect/p/6599489.html" target="_blank" rel="noopener">linux学习(四) – supervisor守护进程</a></li>
+<li><a href="https://www.jianshu.com/p/39b476e808d8" target="_blank" rel="noopener">Supervisor-守护进程工具</a></li>
+</ol>
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
         
-        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>林益远</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://yoursite.com/p/200a.html" title="《工具篇》-- 使用supervisor来管理Linux的后台进程">http://yoursite.com/p/200a.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
         
           
         
-        嗯..! 目前共计 14 篇日志。 继续努力。
-      </span>
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+          
+        </div>
       
 
       
+      
+        <div class="post-widgets">
+        
 
-        
-        
         
 
         
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
           </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/p/200a.html" itemprop="url">
-            
-              <span itemprop="name">《工具篇》-- 使用supervisor来管理Linux的后台进程</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-19T16:36:25+08:00" content="2019-12-19">
-          12-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/p/100a.html" itemprop="url">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span itemprop="name">解决Mysql 分组去重并排序的问题</span>
+              <a href="/p/100a.html" rel="next" title="解决Mysql 分组去重并排序的问题">
+                <i class="fa fa-chevron-left"></i> 解决Mysql 分组去重并排序的问题
+              </a>
             
-          </a>
-        
-      </h2>
+          </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-13T18:13:57+08:00" content="2019-12-13">
-          12-13
-        </time>
-      </div>
+          <span class="post-nav-divider"></span>
 
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
-    </div>
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -530,8 +734,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -681,6 +894,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-介绍"><span class="nav-text">Supervisor 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-安装"><span class="nav-text">Supervisor 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-配置"><span class="nav-text">Supervisor 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -896,6 +1126,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
 
   <script src="/js/next-boot.js?v=7.2.0"></script>
 
@@ -942,6 +1176,8 @@
 
 
 
+
+  
 
 
 
