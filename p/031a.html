@@ -127,18 +127,18 @@
   };
 </script>
 
-  <meta name="description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
-<meta name="keywords" content="Mysql">
+  <meta name="description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
+<meta name="keywords" content="Linux,工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql 的事务四个特性以及事务的四个隔离级别">
-<meta property="og:url" content="http://yoursite.com/p/581a.html">
+<meta property="og:title" content="《工具篇》-- 使用supervisor来管理Linux的后台进程">
+<meta property="og:url" content="http://yoursite.com/p/031a.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
+<meta property="og:description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-24T04:36:47.241Z">
+<meta property="og:updated_time" content="2019-12-20T08:23:40.440Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql 的事务四个特性以及事务的四个隔离级别">
-<meta name="twitter:description" content="前言事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。">
+<meta name="twitter:title" content="《工具篇》-- 使用supervisor来管理Linux的后台进程">
+<meta name="twitter:description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
 
 
 
@@ -148,7 +148,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/p/581a">
+  <link rel="canonical" href="http://yoursite.com/p/031a">
 
 
 
@@ -159,7 +159,7 @@
 </script>
 
   
-  <title>Mysql 的事务四个特性以及事务的四个隔离级别 | Choice→選の博客</title>
+  <title>《工具篇》-- 使用supervisor来管理Linux的后台进程 | Choice→選の博客</title>
   
 
 
@@ -399,7 +399,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/581a.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/031a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林益远">
@@ -416,7 +416,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql 的事务四个特性以及事务的四个隔离级别
+          <h1 class="post-title" itemprop="name headline">《工具篇》-- 使用supervisor来管理Linux的后台进程
 
               
             
@@ -442,7 +442,7 @@
                 
               
 
-              <time title="创建时间：2019-07-23 14:37:57" itemprop="dateCreated datePublished" datetime="2019-07-23T14:37:57+08:00">2019-07-23</time>
+              <time title="创建时间：2019-12-19 16:36:25" itemprop="dateCreated datePublished" datetime="2019-12-19T16:36:25+08:00">2019-12-19</time>
             </span>
           
 
@@ -457,7 +457,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-24 12:36:47" itemprop="dateModified" datetime="2019-07-24T12:36:47+08:00">2019-07-24</time>
+                <time title="修改时间：2019-12-20 16:23:40" itemprop="dateModified" datetime="2019-12-20T16:23:40+08:00">2019-12-20</time>
               </span>
             
           
@@ -471,7 +471,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
@@ -489,8 +489,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/p/581a.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/p/581a.html" itemprop="commentCount"></span>
+                <a href="/p/031a.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/p/031a.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -520,7 +520,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.2k</span>
+              <span title="本文字数">2.8k</span>
             </span>
           
 
@@ -532,7 +532,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">4 分钟</span>
+              <span title="阅读时长">5 分钟</span>
             </span>
           
 
@@ -551,33 +551,45 @@
       
 
       
-        <h1 id="mysql的事务四个特性以及事务的四个隔离级别"><a href="#mysql的事务四个特性以及事务的四个隔离级别" class="headerlink" title="mysql的事务四个特性以及事务的四个隔离级别"></a>mysql的事务四个特性以及事务的四个隔离级别</h1><p>=======================</p>
-<p>事务就是一组原子性的SQL查询，或者说一个独立的工作单元。如果数据库引擎能够成功地对数据应用该组查询的全部语句，那么久执行该组查询。如果其中任何一条语句因为崩溃或其他原因无法执行，那么所有语句都不会执行。也就是说，事务内的语句，要么全部执行成功，要么全部执行失败。</p>
-<h2 id="事务的四大特性（ACID）"><a href="#事务的四大特性（ACID）" class="headerlink" title="事务的四大特性（ACID）"></a>事务的四大特性（ACID）</h2><ul>
-<li>原子性（atomicity）：一个事务必须视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性。</li>
-<li>一致性（consistency）：数据库总数从一个一致性的状态转换到另一个一致性的状态。</li>
-<li>隔离性（isolation）：一个事务所做的修改在最终提交以前，对其他事务是不可见的。</li>
-<li>持久性（durability）：一旦事务提交，则其所做的修改就会永久保存到数据库中。此时即使系统崩溃，修改的数据也不会丢失。</li>
-</ul>
-<p>数据库事务的隔离级别有4种，由低到高分别为Read uncommitted 、Read committed 、Repeatable read 、Serializable 。而且，在事务的并发操作中可能会出现脏读，不可重复读，幻读。下面通过事例一一阐述它们的概念与联系。</p>
-<h2 id="事务的四种隔离级别"><a href="#事务的四种隔离级别" class="headerlink" title="事务的四种隔离级别"></a>事务的四种隔离级别</h2><h3 id="Read-uncommitted"><a href="#Read-uncommitted" class="headerlink" title="Read uncommitted"></a>Read uncommitted</h3><p>读未提交，顾名思义，就是一个事务可以读取另一个未提交事务的数据。</p>
-<p>事例：老板要给程序员发工资，程序员的工资是3.6万/月。但是发工资时老板不小心按错了数字，按成3.9万/月，该钱已经打到程序员的户口，但是事务还没有提交，就在这时，程序员去查看自己这个月的工资，发现比往常多了3千元，以为涨工资了非常高兴。但是老板及时发现了不对，马上回滚差点就提交了的事务，将数字改成3.6万再提交。</p>
-<p>分析：实际程序员这个月的工资还是3.6万，但是程序员看到的是3.9万。他看到的是老板还没提交事务时的数据。这就是脏读。</p>
-<p><code>那怎么解决脏读呢？Read committed！读提交，能解决脏读问题。</code></p>
-<h3 id="Read-committed"><a href="#Read-committed" class="headerlink" title="Read committed"></a>Read committed</h3><p>读提交，顾名思义，就是一个事务要等另一个事务提交后才能读取数据。</p>
-<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（程序员事务开启），收费系统事先检测到他的卡里有3.6万，就在这个时候！！程序员的妻子要把钱全部转出充当家用，并提交。当收费系统准备扣款时，再检测卡里的金额，发现已经没钱了（第二次检测金额当然要等待妻子转出金额事务提交完）。程序员就会很郁闷，明明卡里是有钱的…</p>
-<p>分析：这就是读提交，若有事务对数据进行更新（UPDATE）操作时，读操作事务要等待这个更新操作事务提交后才能读取数据，可以解决脏读问题。但在这个事例中，出现了一个事务范围内两个相同的查询却返回了不同数据，这就是不可重复读。</p>
-<p><code>那怎么解决可能的不可重复读问题？Repeatable read ！</code></p>
-<h3 id="Repeatable-read"><a href="#Repeatable-read" class="headerlink" title="Repeatable read"></a>Repeatable read</h3><p>重复读，就是在开始读取数据（事务开启）时，不再允许修改操作</p>
-<p>事例：程序员拿着信用卡去享受生活（卡里当然是只有3.6万），当他埋单时（事务开启，不允许其他事务的UPDATE修改操作），收费系统事先检测到他的卡里有3.6万。这个时候他的妻子不能转出金额了。接下来收费系统就可以扣款了。</p>
-<p>分析：重复读可以解决不可重复读问题。写到这里，应该明白的一点就是，不可重复读对应的是修改，即UPDATE操作。但是可能还会有幻读问题。因为幻读问题对应的是插入INSERT操作，而不是UPDATE操作。</p>
-<p>什么时候会出现幻读？</p>
-<p>事例：程序员某一天去消费，花了2千元，然后他的妻子去查看他今天的消费记录（全表扫描FTS，妻子事务开启），看到确实是花了2千元，就在这个时候，程序员花了1万买了一部电脑，即新增INSERT了一条消费记录，并提交。当妻子打印程序员的消费记录清单时（妻子事务提交），发现花了1.2万元，似乎出现了幻觉，这就是幻读。</p>
-<p><code>那怎么解决幻读问题？Serializable！</code></p>
-<h3 id="Serializable-序列化"><a href="#Serializable-序列化" class="headerlink" title="Serializable 序列化"></a>Serializable 序列化</h3><p>Serializable 是最高的事务隔离级别，在该级别下，事务串行化顺序执行，可以避免脏读、不可重复读与幻读。但是这种事务隔离级别效率低下，比较耗数据库性能，一般不使用。</p>
-<p><code>值得一提的是：大多数数据库默认的事务隔离级别是Read committed，比如Sql Server , Oracle。MySQL的默认隔离级别是Repeatable read</code></p>
-<hr>
-<p>作者：csdnxingyuntian 来源：CSDN 原文：<a href="https://blog.csdn.net/csdnxingyuntian/article/details/57081233" target="_blank" rel="noopener">https://blog.csdn.net/csdnxingyuntian/article/details/57081233</a>版权声明：本文为博主原创文章，转载请附上博文链接！<br>a</p>
+        <h2 id="Supervisor-介绍"><a href="#Supervisor-介绍" class="headerlink" title="Supervisor 介绍"></a>Supervisor 介绍</h2><p><code>Supervisor</code> 是一个进程管理工具，当进程中断的使用<code>Supervisor</code>能自动重新启动它，该工具使用<code>Python</code>语言开发，支持Linux/Unix系统，不支持Windows系统，它可以很方便的监听、启动、停止、重启一个或多个进程。</p>
+<h2 id="Supervisor-安装"><a href="#Supervisor-安装" class="headerlink" title="Supervisor 安装"></a>Supervisor 安装</h2><p>以下安装均在<code>Ubuntu16.04</code>系统下进行</p>
+<ol>
+<li>安装 <code>Python</code></li>
+</ol>
+<p>由于<code>Supervisor</code>是由<code>Python</code>语言开发，自然而然我们的系统就需要安装<code>Python</code>语言环境, 一般情况下<code>Ubuntu</code>都自带<code>Python</code>语言环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python3.7</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>安装<code>Supervisor</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install supervisor</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后 运行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services supervisor status</span><br></pre></td></tr></table></figure>
+
+<p>查看<code>supervisor</code> 运行状态</p>
+<h2 id="Supervisor-配置"><a href="#Supervisor-配置" class="headerlink" title="Supervisor 配置"></a>Supervisor 配置</h2><p>首先查看<code>Supervisor</code> 的主配置文件，一般文件位于<code>/etc/supervisor/</code>目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  vim /etc/supervisor/supervisord.conf</span><br><span class="line"></span><br><span class="line">//文件内容</span><br><span class="line">; supervisor config file </span><br><span class="line">[unix_http_server]</span><br><span class="line">file=/var/run/supervisor.sock   ; (the path to the socket file)</span><br><span class="line">chmod=0700                       ; sockef file mode (default 0700)</span><br><span class="line"></span><br><span class="line">[supervisord]</span><br><span class="line">logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)</span><br><span class="line">pidfile=/var/run/supervisord.pid ; (supervisord pidfile;default supervisord.pid)</span><br><span class="line">childlogdir=/var/log/supervisor            ; ('AUTO' child log dir, default $TEMP)</span><br><span class="line"></span><br><span class="line">; the below section must remain in the config file for RPC</span><br><span class="line">; (supervisorctl/web interface) to work, additional interfaces may be</span><br><span class="line">; added by defining them in separate rpcinterface: sections</span><br><span class="line">[rpcinterface:supervisor]</span><br><span class="line">supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface</span><br><span class="line"></span><br><span class="line">[supervisorctl]</span><br><span class="line">serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket</span><br><span class="line"></span><br><span class="line">; The [include] section can just contain the "files" setting.  This</span><br><span class="line">; setting can list multiple files (separated by whitespace or</span><br><span class="line">; newlines).  It can also contain wildcards.  The filenames are</span><br><span class="line">; interpreted as relative to this file.  Included files *cannot*</span><br><span class="line">; include files themselves.</span><br><span class="line"></span><br><span class="line">[include]</span><br><span class="line">files = /etc/supervisor/conf.d/*.conf</span><br></pre></td></tr></table></figure>
+
+<p>从配置文件最后一行可以看出子配置文件位于<code>/etc/supervisor/conf.d/</code>  目录下，如果没有则新建相应目录即可，我们打开该目录下<code>conf.d</code>目录并新建一个文件 <code>test.conf</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim test.conf</span><br></pre></td></tr></table></figure>
+
+<p>并写入以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:websocket]</span><br><span class="line">command= //需要被监听的进程路径</span><br><span class="line">autostart=true  //是否随着supervisord的启动而启动</span><br><span class="line">autorestart=unexpected //是否自动重启</span><br><span class="line">exitcodes=0 //正常退出代码</span><br><span class="line">stopsignal=KILL //用来杀死进程的信号</span><br><span class="line">user=root //执行命令用户</span><br><span class="line">redirect_stderr=true //重定向stderr到stdout</span><br><span class="line">stdout_logfile= //日志路径</span><br></pre></td></tr></table></figure>
+
+<p>紧接着我们重启 <code>Supervisor</code> 服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service supervisor restart</span><br></pre></td></tr></table></figure>
+
+<p><code>Supervisord</code>启动成功后，可以通过<code>Supervisorct</code>l客户端控制进程，启动、停止、重启。运行<code>supervisorctl</code>命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-2-ubuntu:/etc/supervisor/conf.d# supervisorctl </span><br><span class="line">test  RUNNING   pid 16350, uptime 1:20:44</span><br><span class="line"><span class="meta">supervisor&gt;</span> status</span><br><span class="line">test  RUNNING   pid 16350, uptime 1:20:45</span><br><span class="line"><span class="meta">supervisor&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后我们可以看到我们监听的进程<code>test</code>已经 在运行了，我们可以通过以下命令对其进行控制：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart &lt;application name&gt; ;重启指定应用</span><br><span class="line">supervisorctl stop &lt;application name&gt; ;停止指定应用</span><br><span class="line">supervisorctl start &lt;application name&gt; ;启动指定应用</span><br><span class="line">supervisorctl restart all ;重启所有应用</span><br><span class="line">supervisorctl stop all ;停止所有应用</span><br><span class="line">supervisorctl start all ;启动所有应用</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
+<li><a href="https://www.cnblogs.com/redirect/p/6599489.html" target="_blank" rel="noopener">linux学习(四) – supervisor守护进程</a></li>
+<li><a href="https://www.jianshu.com/p/39b476e808d8" target="_blank" rel="noopener">Supervisor-守护进程工具</a></li>
+</ol>
       
     </div>
 
@@ -615,7 +627,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/p/581a.html" title="Mysql 的事务四个特性以及事务的四个隔离级别">http://yoursite.com/p/581a.html</a>
+    <a href="http://yoursite.com/p/031a.html" title="《工具篇》-- 使用supervisor来管理Linux的后台进程">http://yoursite.com/p/031a.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -641,7 +653,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Mysql/" rel="tag"><i class="fa fa-tag"></i> Mysql</a>
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
           
         </div>
       
@@ -674,14 +688,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/p/011b.html" rel="next" title="解决Mysql 分组去重并排序的问题">
+                <i class="fa fa-chevron-left"></i> 解决Mysql 分组去重并排序的问题
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/p/001a.html" rel="prev" title="初步理解JWT">
-                初步理解JWT <i class="fa fa-chevron-right"></i>
+              <a href="/p/041b.html" rel="prev" title="《插件篇》-- 使用Vue + ElementUI 搭建的Cron表达式组件">
+                《插件篇》-- 使用Vue + ElementUI 搭建的Cron表达式组件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -758,7 +776,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -820,7 +838,9 @@
         
           
         
-        <span class="site-state-item-count">10</span>
+          
+        
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -897,7 +917,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql的事务四个特性以及事务的四个隔离级别"><span class="nav-text">mysql的事务四个特性以及事务的四个隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四大特性（ACID）"><span class="nav-text">事务的四大特性（ACID）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务的四种隔离级别"><span class="nav-text">事务的四种隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-uncommitted"><span class="nav-text">Read uncommitted</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-committed"><span class="nav-text">Read committed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Repeatable-read"><span class="nav-text">Repeatable read</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Serializable-序列化"><span class="nav-text">Serializable 序列化</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-介绍"><span class="nav-text">Supervisor 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-安装"><span class="nav-text">Supervisor 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-配置"><span class="nav-text">Supervisor 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
@@ -935,7 +955,7 @@
     
   <span title="post.totalcount">
      字 </span>
-    <!--<span title="站点总字数">49k</span>-->
+    <!--<span title="站点总字数">50k</span>-->
   
 
   

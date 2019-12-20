@@ -127,18 +127,23 @@
   };
 </script>
 
-  <meta name="description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
-<meta name="keywords" content="Linux,工具">
+  <meta name="description" content="前言今天在处理一个数据汇总的时候，需要写一条mysql语句用来获取根据最新日期排序并且根据用户去重的一个列表数据，当执行这条语句后，发现并没有按照预期的结果显示数据，显示的是未排序的数据，但是去重已经完成了，在查阅了相关资料后发现mysql5.7更新一些特性导致这个语句失效">
+<meta name="keywords" content="Mysql,Working">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《工具篇》-- 使用supervisor来管理Linux的后台进程">
-<meta property="og:url" content="http://yoursite.com/p/200a.html">
+<meta property="og:title" content="解决Mysql 分组去重并排序的问题">
+<meta property="og:url" content="http://yoursite.com/p/011b.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
+<meta property="og:description" content="前言今天在处理一个数据汇总的时候，需要写一条mysql语句用来获取根据最新日期排序并且根据用户去重的一个列表数据，当执行这条语句后，发现并没有按照预期的结果显示数据，显示的是未排序的数据，但是去重已经完成了，在查阅了相关资料后发现mysql5.7更新一些特性导致这个语句失效">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-19T09:59:48.614Z">
+<meta property="og:image" content="http://images.linyiyuan.top/snipaste_20191214_143831.jpg">
+<meta property="og:image" content="http://images.linyiyuan.top/snipaste_20191214_144255.jpg">
+<meta property="og:image" content="http://images.linyiyuan.top/snipaste_20191214_145646.jpg">
+<meta property="og:image" content="http://images.linyiyuan.top/snipaste_20191214_150133.jpg">
+<meta property="og:updated_time" content="2019-12-20T08:23:30.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《工具篇》-- 使用supervisor来管理Linux的后台进程">
-<meta name="twitter:description" content="搜索 前言  我们在日常开发过程中，我们服务器都会经常跑一些程序，而这些程序都是放在后台去运行，但是有些程序运行过程中可能会出现崩溃，或者提前退出等情况，所以我们需要有一个用于管理进程的工具，当进程中断或者奔溃的时候能自动重新启动它，Supervisor 就是这么一个用于管理进程的工具">
+<meta name="twitter:title" content="解决Mysql 分组去重并排序的问题">
+<meta name="twitter:description" content="前言今天在处理一个数据汇总的时候，需要写一条mysql语句用来获取根据最新日期排序并且根据用户去重的一个列表数据，当执行这条语句后，发现并没有按照预期的结果显示数据，显示的是未排序的数据，但是去重已经完成了，在查阅了相关资料后发现mysql5.7更新一些特性导致这个语句失效">
+<meta name="twitter:image" content="http://images.linyiyuan.top/snipaste_20191214_143831.jpg">
 
 
 
@@ -148,7 +153,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/p/200a">
+  <link rel="canonical" href="http://yoursite.com/p/011b">
 
 
 
@@ -159,7 +164,7 @@
 </script>
 
   
-  <title>《工具篇》-- 使用supervisor来管理Linux的后台进程 | Choice→選の博客</title>
+  <title>解决Mysql 分组去重并排序的问题 | Choice→選の博客</title>
   
 
 
@@ -399,7 +404,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/200a.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/011b.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林益远">
@@ -416,7 +421,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《工具篇》-- 使用supervisor来管理Linux的后台进程
+          <h1 class="post-title" itemprop="name headline">解决Mysql 分组去重并排序的问题
 
               
             
@@ -442,13 +447,23 @@
                 
               
 
-              <time title="创建时间：2019-12-19 16:36:25 / 修改时间：17:59:48" itemprop="dateCreated datePublished" datetime="2019-12-19T16:36:25+08:00">2019-12-19</time>
+              <time title="创建时间：2019-12-13 18:13:57" itemprop="dateCreated datePublished" datetime="2019-12-13T18:13:57+08:00">2019-12-13</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-12-20 16:23:30" itemprop="dateModified" datetime="2019-12-20T16:23:30+08:00">2019-12-20</time>
+              </span>
             
           
 
@@ -461,7 +476,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
 
                 
                 
@@ -479,8 +494,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/p/200a.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/p/200a.html" itemprop="commentCount"></span>
+                <a href="/p/011b.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/p/011b.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -510,7 +525,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">2.8k</span>
+              <span title="本文字数">1.6k</span>
             </span>
           
 
@@ -522,7 +537,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">5 分钟</span>
+              <span title="阅读时长">3 分钟</span>
             </span>
           
 
@@ -541,44 +556,36 @@
       
 
       
-        <h2 id="Supervisor-介绍"><a href="#Supervisor-介绍" class="headerlink" title="Supervisor 介绍"></a>Supervisor 介绍</h2><p><code>Supervisor</code> 是一个进程管理工具，当进程中断的使用<code>Supervisor</code>能自动重新启动它，该工具使用<code>Python</code>语言开发，支持Linux/Unix系统，不支持Windows系统，它可以很方便的监听、启动、停止、重启一个或多个进程。</p>
-<h2 id="Supervisor-安装"><a href="#Supervisor-安装" class="headerlink" title="Supervisor 安装"></a>Supervisor 安装</h2><p>以下安装均在<code>Ubuntu16.04</code>系统下进行</p>
-<ol>
-<li>安装 <code>Python</code></li>
+        <h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>假设我们现在有一张用户钱包表  该表包含着四个字段 气质ID字段是递增的  还有用户名(username), 货币数量(currency), 添加时间(addTime),  用户的货币数量随着时间的变化而更新</p>
+<p><img src="http://images.linyiyuan.top/snipaste_20191214_143831.jpg" alt="img"></p>
+<p>现在我们需要查询每个用户的最新货币数量，首先我们需要对列表进行排序并对用户去重，所以我们就简单的写了一条sql语句并执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct username, currency, addTime from user_wallet order by addTime desc;</span><br></pre></td></tr></table></figure>
+
+<p>结果显示：</p>
+<p><img src="http://images.linyiyuan.top/snipaste_20191214_144255.jpg" alt="img"></p>
+<p>结果显示去重并未生效，在网上查看的资料后，其原因是<code>distinct</code>只能返回他的目标字段，而无法返回其他字段，所以我们使用<code>group by</code> 进行去重 在使用<code>group by</code>之前，由于我本地的MySQL 版本是5.7，而MySQL5.7 默认的 MySQL 配置中 <code>sql_mode</code> 配置了 <code>only_full_group</code>，需要 <code>GROUP BY</code> 中包含所有 在 SELECT 中出现的字段, 所以我们需要在MySQL 的配置中去掉这个配置:</p>
+<p>在 配置文件（my.cnf）中 修改 sql_mode 的配置为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vim /usr/local/etc/my.cnf</span><br><span class="line">sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br></pre></td></tr></table></figure>
+
+<p>然后重启MYSQL服务即可：</p>
+<p><img src="http://images.linyiyuan.top/snipaste_20191214_145646.jpg" alt="img"></p>
+<p>结果显示，去重已经生效，但是排序未生效，这是因为我们是先去重拿到结果后再进行的排序，所以排序也是针对于去重后的结果进行排序，所以我们对这条Sql语句进行修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select username, currency, addTime FROM (select username, currency, addTime from user_wallet order by addTime DESC) alias GROUP BY username;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://images.linyiyuan.top/snipaste_20191214_150133.jpg" alt="img"></p>
+<p>结果发现排序还是未能生效，</p>
+<p>小编在查阅了相关资料后，发现在mysql 5.7 中 ，这种语法并没有效果，正确的写法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select username, currency, addTime FROM (select username, currency, addTime from user_wallet order by addTime DESC limit 0, 10000) alias GROUP BY username;</span><br></pre></td></tr></table></figure>
+
+<p>通过 explain 查看执行计划，可以看到没有 limit 的时候，少了一个 DERIVED 操作。DERIVED用于派生表的SELECT(FROM子句的子查询)，所以没有它就相当于子句里的排序并没有被执行。至此问题解决</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>采用子句查询时，别名（alias）不可少，会报语法错误</li>
+<li>如果有分页，分页条件要写在子句里面</li>
+<li>需要去重mysql的严格模式</li>
 </ol>
-<p>由于<code>Supervisor</code>是由<code>Python</code>语言开发，自然而然我们的系统就需要安装<code>Python</code>语言环境, 一般情况下<code>Ubuntu</code>都自带<code>Python</code>语言环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python3.7</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>安装<code>Supervisor</code></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install supervisor</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后 运行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">services supervisor status</span><br></pre></td></tr></table></figure>
-
-<p>查看<code>supervisor</code> 运行状态</p>
-<h2 id="Supervisor-配置"><a href="#Supervisor-配置" class="headerlink" title="Supervisor 配置"></a>Supervisor 配置</h2><p>首先查看<code>Supervisor</code> 的主配置文件，一般文件位于<code>/etc/supervisor/</code>目录下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">  vim /etc/supervisor/supervisord.conf</span><br><span class="line"></span><br><span class="line">//文件内容</span><br><span class="line">; supervisor config file </span><br><span class="line">[unix_http_server]</span><br><span class="line">file=/var/run/supervisor.sock   ; (the path to the socket file)</span><br><span class="line">chmod=0700                       ; sockef file mode (default 0700)</span><br><span class="line"></span><br><span class="line">[supervisord]</span><br><span class="line">logfile=/var/log/supervisor/supervisord.log ; (main log file;default $CWD/supervisord.log)</span><br><span class="line">pidfile=/var/run/supervisord.pid ; (supervisord pidfile;default supervisord.pid)</span><br><span class="line">childlogdir=/var/log/supervisor            ; ('AUTO' child log dir, default $TEMP)</span><br><span class="line"></span><br><span class="line">; the below section must remain in the config file for RPC</span><br><span class="line">; (supervisorctl/web interface) to work, additional interfaces may be</span><br><span class="line">; added by defining them in separate rpcinterface: sections</span><br><span class="line">[rpcinterface:supervisor]</span><br><span class="line">supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface</span><br><span class="line"></span><br><span class="line">[supervisorctl]</span><br><span class="line">serverurl=unix:///var/run/supervisor.sock ; use a unix:// URL  for a unix socket</span><br><span class="line"></span><br><span class="line">; The [include] section can just contain the "files" setting.  This</span><br><span class="line">; setting can list multiple files (separated by whitespace or</span><br><span class="line">; newlines).  It can also contain wildcards.  The filenames are</span><br><span class="line">; interpreted as relative to this file.  Included files *cannot*</span><br><span class="line">; include files themselves.</span><br><span class="line"></span><br><span class="line">[include]</span><br><span class="line">files = /etc/supervisor/conf.d/*.conf</span><br></pre></td></tr></table></figure>
-
-<p>从配置文件最后一行可以看出子配置文件位于<code>/etc/supervisor/conf.d/</code>  目录下，如果没有则新建相应目录即可，我们打开该目录下<code>conf.d</code>目录并新建一个文件 <code>test.conf</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim test.conf</span><br></pre></td></tr></table></figure>
-
-<p>并写入以下内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[program:websocket]</span><br><span class="line">command= //需要被监听的进程路径</span><br><span class="line">autostart=true  //是否随着supervisord的启动而启动</span><br><span class="line">autorestart=unexpected //是否自动重启</span><br><span class="line">exitcodes=0 //正常退出代码</span><br><span class="line">stopsignal=KILL //用来杀死进程的信号</span><br><span class="line">user=root //执行命令用户</span><br><span class="line">redirect_stderr=true //重定向stderr到stdout</span><br><span class="line">stdout_logfile= //日志路径</span><br></pre></td></tr></table></figure>
-
-<p>紧接着我们重启 <code>Supervisor</code> 服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service supervisor restart</span><br></pre></td></tr></table></figure>
-
-<p><code>Supervisord</code>启动成功后，可以通过<code>Supervisorct</code>l客户端控制进程，启动、停止、重启。运行<code>supervisorctl</code>命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-2-ubuntu:/etc/supervisor/conf.d# supervisorctl </span><br><span class="line">test  RUNNING   pid 16350, uptime 1:20:44</span><br><span class="line"><span class="meta">supervisor&gt;</span> status</span><br><span class="line">test  RUNNING   pid 16350, uptime 1:20:45</span><br><span class="line"><span class="meta">supervisor&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>然后我们可以看到我们监听的进程<code>test</code>已经 在运行了，我们可以通过以下命令对其进行控制：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl restart &lt;application name&gt; ;重启指定应用</span><br><span class="line">supervisorctl stop &lt;application name&gt; ;停止指定应用</span><br><span class="line">supervisorctl start &lt;application name&gt; ;启动指定应用</span><br><span class="line">supervisorctl restart all ;重启所有应用</span><br><span class="line">supervisorctl stop all ;停止所有应用</span><br><span class="line">supervisorctl start all ;启动所有应用</span><br></pre></td></tr></table></figure>
-
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="https://www.cnblogs.com/redirect/p/6599489.html" target="_blank" rel="noopener">linux学习(四) – supervisor守护进程</a></li>
-<li><a href="https://www.jianshu.com/p/39b476e808d8" target="_blank" rel="noopener">Supervisor-守护进程工具</a></li>
+<li><a href="https://jingyan.baidu.com/article/4ae03de3df93cc3eff9e6b37.html" target="_blank" rel="noopener">Mysql5.7分组排序</a></li>
+<li><a href="https://www.cnblogs.com/chuanqi1995/p/11436993.html" target="_blank" rel="noopener">解决MySQL：1055 - Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated</a></li>
 </ol>
       
     </div>
@@ -617,7 +624,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/p/200a.html" title="《工具篇》-- 使用supervisor来管理Linux的后台进程">http://yoursite.com/p/200a.html</a>
+    <a href="http://yoursite.com/p/011b.html" title="解决Mysql 分组去重并排序的问题">http://yoursite.com/p/011b.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -643,9 +650,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+            <a href="/tags/Mysql/" rel="tag"><i class="fa fa-tag"></i> Mysql</a>
           
-            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+            <a href="/tags/Working/" rel="tag"><i class="fa fa-tag"></i> Working</a>
           
         </div>
       
@@ -678,8 +685,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/p/100a.html" rel="next" title="解决Mysql 分组去重并排序的问题">
-                <i class="fa fa-chevron-left"></i> 解决Mysql 分组去重并排序的问题
+              <a href="/p/009a.html" rel="next" title="你必须了解的PHP7垃圾回收机制">
+                <i class="fa fa-chevron-left"></i> 你必须了解的PHP7垃圾回收机制
               </a>
             
           </div>
@@ -687,6 +694,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/p/031a.html" rel="prev" title="《工具篇》-- 使用supervisor来管理Linux的后台进程">
+                《工具篇》-- 使用supervisor来管理Linux的后台进程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -762,7 +773,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -824,7 +835,9 @@
         
           
         
-        <span class="site-state-item-count">10</span>
+          
+        
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -901,7 +914,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-介绍"><span class="nav-text">Supervisor 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-安装"><span class="nav-text">Supervisor 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Supervisor-配置"><span class="nav-text">Supervisor 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题解决"><span class="nav-text">问题解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
@@ -939,7 +952,7 @@
     
   <span title="post.totalcount">
      字 </span>
-    <!--<span title="站点总字数">49k</span>-->
+    <!--<span title="站点总字数">50k</span>-->
   
 
   
