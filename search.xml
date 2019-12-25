@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《工具篇》-- 使用qshell批量下载七牛云储存桶资源]]></title>
+    <url>%2Fp%2F021a.html</url>
+    <content type="text"><![CDATA[介绍引用官方的一句简介：“qshell是利用七牛文档上公开的API实现的一个方便开发者测试和使用七牛API服务的命令行工具。该工具设计和开发的主要目的就是帮助开发者快速解决问题 ” 下载我们可以通过在七牛云官网上找到下载地址，里面有各个系统版本所对应的下载地址，这里小编选择的windwos amd64 官方下载地址 下载完成后我们将压缩包解压得到一个.exe 后缀的文件 使用首先我们并不能直接打开该文件，直接打开该文件会提示You need to open cmd.exe and run it from there 我们应该先打开windows 的命令行工具，可以使用 Win + R 打开 运行 然后输入 cmd 打开命令行工具 打开命令行工具后我们进入到刚刚解压完qshell的目录 由图显示，小编已经进入该页面，为了方便操作，小编将下载的工具命名为qshell这时候我们就可以使用qshell 提供的相关命令进行操作了 下载资源 鉴权 在进行下载资源之前我们需要鉴权，我们只需要使用命令行配置好相应的key 跟 secret 即可 1qshell account AccessKey SecretKey AccountName 将AccessKey SeretKey AccountName 换成你的七牛账号下的 AccessKey 和 SecretKey以及账号名即可 运行完成后我们可以查看用户信息 1qshell user ls 配置下载信息 我们需要单独配置一个下载配置，我们新建一个文件，命名为download.conf, 然后写入以下内容： 123456789101112&#123; "dest_dir" : "C:\\Users\\sirui-php\\Desktop\\test\\image\\", "bucket" : "test", "prefix" : "photo/pic/", "suffixes" : ".png,.jpg", "cdn_domain" : "", "referer" : "http://www.example.com", "log_file" : "download.log", "log_level" : "info", "log_rotate" : 1, "log_stdout" : false&#125; 参数说明： 参数名 描述 可选参数 dest_dir 本地数据备份路径，为全路径 N bucket 空间名称 N prefix 只同步指定前缀的文件，默认为空 Y suffixes 只同步指定后缀的文件，默认为空 Y cdn_domain 设置下载的CDN域名，默认为空表示从存储源站下载，【该功能默认需要计费，如果希望享受10G的免费流量，请自行设置cdn_domain参数，如不设置，需支付源站流量费用，无法减免！！！】 N referer 如果CDN域名配置了域名白名单防盗链，需要指定一个允许访问的referer地址 N log_level 下载日志输出级别，可选值为debug,info,warn,error,默认info Y log_file 下载日志的输出文件，如果不指定会输出到qshell工作目录下默认的文件中，文件名可以在终端输出看到 Y log_rotate 下载日志文件的切换周期，单位为天，默认为1天即切换到新的下载日志文件 Y log_stdout 下载日志是否同时输出一份到标准终端，默认为false，主要在调试下载功能时可以指定为true Y 其中dest_dir 为你本地保存资源的路径，在Windows系统下面使用的时候，注意dest_dir的设置遵循D:\\jemy\\backup这种方式。也就是路径里面的\要有两个（\\）。 运行命令 配置好下载配置后我们运行以下命令即可下载该存储桶内的所有资源文件 1qshell qdownload test.conf 需要注意的时，如果运行命令报： 表示我需要我们自己手动去创建保存资源的目录，我们新建相应目录即可 参考文献 命令行工具(qshell) qdownload下载文档]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《插件篇》-- 使用Vue + ElementUI 搭建的Cron表达式组件]]></title>
     <url>%2Fp%2F041b.html</url>
     <content type="text"><![CDATA[安装该项目是由 ldy 作者编写，以下文档说明大部分都是从作者项目下转载，非原创 项目地址： https://gitee.com/lindeyi/vue-cron 首先我们将该项目本地克隆下来，然后将 src/components 里面的两个文件 cron.vue, cron 复制到我们的项目中的components中即可。 使用方式在我们需要使用到该插件的页面中去引入该插件, 并注册 12345678import cron from '@/components/cron'export default &#123;name: "App",components: &#123; cron&#125;,.... 然后我们在指定显示组件的地方粘贴下以下代码： 12345678910&lt;el-form-item style="margin-top: -10px; margin-bottom:0px;"&gt; &lt;span style="color: #E6A23C; font-size: 12px;"&gt;corn从左到右（用空格隔开）：秒 分 小时 月份中的日期 月份 星期中的日期 年份&lt;/span&gt; &lt;cron v-if="showCronBox" v-model="cronParams"&gt;&lt;/cron&gt;&lt;/el-form-item&gt; &lt;el-form-item label="cron表达式"&gt; &lt;el-input size="medium" v-model="cronParams" auto-complete="off" placeholder="请填写cron表达式"&gt; &lt;el-button slot="append" v-if="!showCronBox" icon="el-icon-arrow-up" @click="showCronBox= true" title="打开图形配置"&gt;&lt;/el-button&gt; &lt;el-button slot="append" v-else icon="el-icon-arrow-down" @click="showCronBox= false" title="关闭图形配置"&gt;&lt;/el-button&gt; &lt;/el-input&gt;&lt;/el-form-item&gt; 然后我们同样需要在data 数据块中加上以下数据即可： 123456data() &#123; return &#123; cronParams: null, showCronBox: false, &#125;&#125; 页面演示 参考文献 vue-cron 基于Vue的Cron表达式组件 超级好用的Cron表达式组件easy-cron]]></content>
