@@ -127,21 +127,27 @@
   };
 </script>
 
-  <meta name="description" content="PHP的Yield 关键字是php5.5版本推出的一个特性，算是比较古老的了，其他很多语言中也有类似的特性存在。但是在实际的项目中，目前用到还比较少。网上相关的文章最出名的就是鸟哥的那篇了，下面为大家介绍这一强大的神器">
-<meta name="keywords" content="PHP">
+  <meta name="description" content="项目简介  Picture_bed 是基于Laravel5.6 + Bootstrap4.0开发的一个小型相册展示系统，编写该项目的意义在于可以更加可视化的去管理自己储存在云上的图片，同时后台也支持批量下载，批量上传功能。该系统只是前端展示，其后台使用的是vue-admin-template + laravel-admin-template 构建的crm系统。">
+<meta name="keywords" content="Laravel,PHP,开源项目,Github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于PHP生成器Yield的使用（上）">
-<meta property="og:url" content="http://yoursite.com/p/006a.html">
+<meta property="og:title" content="《开源项目篇》-- Picture_bed 相册展示系统">
+<meta property="og:url" content="http://yoursite.com/p/061a.html">
 <meta property="og:site_name" content="Choice→選の博客">
-<meta property="og:description" content="PHP的Yield 关键字是php5.5版本推出的一个特性，算是比较古老的了，其他很多语言中也有类似的特性存在。但是在实际的项目中，目前用到还比较少。网上相关的文章最出名的就是鸟哥的那篇了，下面为大家介绍这一强大的神器">
+<meta property="og:description" content="项目简介  Picture_bed 是基于Laravel5.6 + Bootstrap4.0开发的一个小型相册展示系统，编写该项目的意义在于可以更加可视化的去管理自己储存在云上的图片，同时后台也支持批量下载，批量上传功能。该系统只是前端展示，其后台使用的是vue-admin-template + laravel-admin-template 构建的crm系统。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190907150407.png">
-<meta property="og:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190907154456.png">
-<meta property="og:updated_time" content="2019-09-11T10:09:28.836Z">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/06e45d780c22b1818f38f35ffe1b9d10.jpg">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/f897b405e0b1955aa58f5bd3ef9be31e.png.png">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/c37a55e8586dbc059550f6960c7f009a.jpg">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/81ca6c9a2f40659b1e650f47530670fe.jpg">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/1f8cb5ba592b3a230fc4e5801775bcc7.jpg">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/dfae36e2bea944e7d6a8a21ae84f8f7a.png.png">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/931ed5c6e3ac7420c6d4142b993b0ae6.jpg">
+<meta property="og:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/293f0596c4900cfa1ee5669d3b1d479e.jpg">
+<meta property="og:updated_time" content="2019-12-27T06:36:41.954Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于PHP生成器Yield的使用（上）">
-<meta name="twitter:description" content="PHP的Yield 关键字是php5.5版本推出的一个特性，算是比较古老的了，其他很多语言中也有类似的特性存在。但是在实际的项目中，目前用到还比较少。网上相关的文章最出名的就是鸟哥的那篇了，下面为大家介绍这一强大的神器">
-<meta name="twitter:image" content="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190907150407.png">
+<meta name="twitter:title" content="《开源项目篇》-- Picture_bed 相册展示系统">
+<meta name="twitter:description" content="项目简介  Picture_bed 是基于Laravel5.6 + Bootstrap4.0开发的一个小型相册展示系统，编写该项目的意义在于可以更加可视化的去管理自己储存在云上的图片，同时后台也支持批量下载，批量上传功能。该系统只是前端展示，其后台使用的是vue-admin-template + laravel-admin-template 构建的crm系统。">
+<meta name="twitter:image" content="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/06e45d780c22b1818f38f35ffe1b9d10.jpg">
 
 
 
@@ -151,7 +157,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/p/006a">
+  <link rel="canonical" href="http://yoursite.com/p/061a">
 
 
 
@@ -162,7 +168,7 @@
 </script>
 
   
-  <title>关于PHP生成器Yield的使用（上） | Choice→選の博客</title>
+  <title>《开源项目篇》-- Picture_bed 相册展示系统 | Choice→選の博客</title>
   
 
 
@@ -402,7 +408,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/006a.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/p/061a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="林益远">
@@ -419,7 +425,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">关于PHP生成器Yield的使用（上）
+          <h1 class="post-title" itemprop="name headline">《开源项目篇》-- Picture_bed 相册展示系统
 
               
             
@@ -445,7 +451,7 @@
                 
               
 
-              <time title="创建时间：2019-09-07 15:42:45" itemprop="dateCreated datePublished" datetime="2019-09-07T15:42:45+08:00">2019-09-07</time>
+              <time title="创建时间：2019-12-26 17:00:00" itemprop="dateCreated datePublished" datetime="2019-12-26T17:00:00+08:00">2019-12-26</time>
             </span>
           
 
@@ -460,7 +466,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-11 18:09:28" itemprop="dateModified" datetime="2019-09-11T18:09:28+08:00">2019-09-11</time>
+                <time title="修改时间：2019-12-27 14:36:41" itemprop="dateModified" datetime="2019-12-27T14:36:41+08:00">2019-12-27</time>
               </span>
             
           
@@ -474,7 +480,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开源项目/" itemprop="url" rel="index"><span itemprop="name">开源项目</span></a></span>
 
                 
                 
@@ -492,8 +498,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/p/006a.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/p/006a.html" itemprop="commentCount"></span>
+                <a href="/p/061a.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/p/061a.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -523,7 +529,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span title="本文字数">3.9k</span>
+              <span title="本文字数">831</span>
             </span>
           
 
@@ -535,7 +541,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span title="阅读时长">7 分钟</span>
+              <span title="阅读时长">1 分钟</span>
             </span>
           
 
@@ -554,76 +560,48 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在认识这个强大的神器之前我们先了解几个常见PHP内置函数内存相关常见常数，</p>
-<ol>
-<li>memory_get_usage(): 返回当前分配给PHP脚本的内存量，单位是字节（byte）</li>
-<li>memory_get_peak_usage(): 返回内存使用峰值</li>
-<li>getrusage():返回CUP使用情况</li>
-</ol>
-<p>我们在日常开发中可以使用这些内置函数来调试PHP代码性能。但需要注意的是这几个函数只能在linux系统中使用</p>
-<p>在认识以上三个函数之后我们来做一个简单的小测, 我们迭代数组一个1-1000的数组</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$start_memory = memory_get_usage();</span><br><span class="line"></span><br><span class="line">$numberArr = range(<span class="number">1</span>, <span class="number">1000</span>);</span><br><span class="line"><span class="keyword">foreach</span>($numberArr <span class="keyword">as</span> $key) &#123;</span><br><span class="line">  <span class="comment">//echo $key;</span></span><br><span class="line">&#125;</span><br><span class="line">$end_memory = memory_get_usage();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'运行该迭代数组所耗内存：'</span>  . ($end_memory - $start_memory) . <span class="string">'bytes'</span>;</span><br></pre></td></tr></table></figure>
-
-<p>运行结果：</p>
-<pre><code>运行该迭代数组所耗内存：528440 bytes</code></pre><p>折算成kb单位就是大概是528kb, 这样一看并没觉得什么，这时候我们继续增大数组范围，我们将范围扩大成1-1000000</p>
-<p>运行结果：</p>
-<pre><code>运行该迭代数组所耗内存：4198480 bytes</code></pre><p>大概是4m左右，这时候还是可以遍历得出来，我们继续增大1-10000000</p>
-<p>运行结果：</p>
-<p><strong>Fatal error</strong>: Allowed memory size of 134217728 bytes exhausted (tried to allocate 536870920 bytes) in <strong>/data/default/index.php</strong> on line <strong>11</strong></p>
-<p>发现报错了，系统提示内存溢出了 134217728 bytes 大概是134MB, 我们再查看一下PHP配置文件</p>
-<p><img src="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190907150407.png" alt></p>
-<p>果不其然，配置文件限制的内存最大值是128 我们执行该程序的内存使用明显超出限制，这时候我们只能修改此配置文件使其限制内存更大些，但是如果遇到超级大的数据量，或者让你去处理一个几个G的Excel文件时，你会发现修改这个配置文件并不能从根本解决问题，配置内存还需要考虑到服务器的内存使用情况等等，</p>
-<h2 id="认识Yield"><a href="#认识Yield" class="headerlink" title="认识Yield"></a>认识Yield</h2><p>这时候我们就可以使用 <code>Yield</code> 这个强大的神器，下面我们使用<code>Yield</code> 优化我们上面的代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$start_memory = memory_get_usage();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">yield_range</span><span class="params">($start, $end)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">while</span>( $start &lt;= $end )&#123;</span><br><span class="line">    $start++;</span><br><span class="line">    <span class="keyword">yield</span> $start;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$numberArr = yield_range(<span class="number">1</span>, <span class="number">10000000</span>);</span><br><span class="line"><span class="keyword">foreach</span>($numberArr <span class="keyword">as</span> $key) &#123;</span><br><span class="line">  <span class="comment">// echo $key;</span></span><br><span class="line">&#125;</span><br><span class="line">$end_memory = memory_get_usage();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'运行该迭代数组所耗内存：'</span>  . ($end_memory - $start_memory) . <span class="string">' bytes'</span>;</span><br></pre></td></tr></table></figure>
-
-<p>运行一下，让你们感受下</p>
-<pre><code>运行该迭代数组所耗内存：320 bytes</code></pre><p>我擦，使用内存竟然连1kb都没有，那么，我们来分析一波儿这个神奇的yield_range函数。这个yield关键字到底返回的是什么？我们简单看一下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">yield_range</span><span class="params">( $start, $end )</span></span>&#123;</span><br><span class="line"> <span class="keyword">while</span>( $start &lt;= $end )&#123;</span><br><span class="line"> $start++;</span><br><span class="line"> <span class="keyword">yield</span> $start;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">$rs = yield_range( <span class="number">1</span>, <span class="number">100</span> );</span><br><span class="line"></span><br><span class="line">var_dump( $rs );</span><br></pre></td></tr></table></figure>
-
-<pre><code>/*
-object(Generator)#1 (0) {
-}
-*/</code></pre><h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><p><code>Yield</code> 返回的是一个叫做Generator（中文名就是生成器）的object对象，该对象是由generators(生成器)返回，不能通过new实例化，而这个生成器是实现了Iterator接口，该接口提供了一下几个方法：</p>
-<ol>
-<li>abstract public <a href="https://www.php.net/manual/zh/iterator.current.php" target="_blank" rel="noopener">current</a> ( void ) : <a href="https://www.php.net/manual/zh/language.pseudo-types.php#language.types.mixed" target="_blank" rel="noopener">mixed</a></li>
-<li>abstract public <a href="https://www.php.net/manual/zh/iterator.key.php" target="_blank" rel="noopener">key</a> ( void ) : scalar</li>
-<li>abstract public <a href="https://www.php.net/manual/zh/iterator.next.php" target="_blank" rel="noopener">next</a> ( void ) : void</li>
-<li>abstract public <a href="https://www.php.net/manual/zh/iterator.rewind.php" target="_blank" rel="noopener">rewind</a> ( void ) : void</li>
-<li>abstract public <a href="https://www.php.net/manual/zh/iterator.valid.php" target="_blank" rel="noopener">valid</a> ( void ) : bool</li>
-</ol>
-<p>而Generator又包含一下几个方法：</p>
+        <h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><p>首先你得确保你服务器符合以下要求：</p>
 <ul>
-<li><a href="https://www.php.net/manual/zh/generator.current.php" target="_blank" rel="noopener">Generator::current</a> — 返回当前产生的值</li>
-<li><a href="https://www.php.net/manual/zh/generator.key.php" target="_blank" rel="noopener">Generator::key</a> — 返回当前产生的键</li>
-<li><a href="https://www.php.net/manual/zh/generator.next.php" target="_blank" rel="noopener">Generator::next</a> — 生成器继续执行</li>
-<li><a href="https://www.php.net/manual/zh/generator.rewind.php" target="_blank" rel="noopener">Generator::rewind</a> — 重置迭代器</li>
-<li><a href="https://www.php.net/manual/zh/generator.send.php" target="_blank" rel="noopener">Generator::send</a> — 向生成器中传入一个值</li>
-<li><a href="https://www.php.net/manual/zh/generator.throw.php" target="_blank" rel="noopener">Generator::throw</a> — 向生成器中抛入一个异常</li>
-<li><a href="https://www.php.net/manual/zh/generator.valid.php" target="_blank" rel="noopener">Generator::valid</a> — 检查迭代器是否被关闭</li>
-<li><a href="https://www.php.net/manual/zh/generator.wakeup.php" target="_blank" rel="noopener">Generator::__wakeup</a> — 序列化回调</li>
+<li>PHP &gt;= 7.1.3</li>
+<li>OpenSSL PHP扩展</li>
+<li>PDO PHP扩展，注意需要php_mysql</li>
+<li>Mbstring PHP扩展</li>
+<li>Tokenizer PHP扩展</li>
+<li>XML PHP扩展</li>
 </ul>
-<p>所以，既然实现了Iterator接口（也正是因为如此，这个东西可以使用foreach进行迭代，明白了吧？），所以可以有如下代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">yield_range</span><span class="params">( $start, $end )</span></span>&#123;</span><br><span class="line"> <span class="keyword">while</span>( $start &lt;= $end )&#123;</span><br><span class="line"> <span class="keyword">yield</span> $start;</span><br><span class="line"> $start++;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">$generator = yield_range( <span class="number">1</span>, <span class="number">10</span> );</span><br><span class="line"></span><br><span class="line"><span class="comment">// valid() current() next() 都是Iterator接口中的方法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>( $generator-&gt;valid() )&#123;</span><br><span class="line"> <span class="keyword">echo</span> $generator-&gt;current().PHP_EOL;</span><br><span class="line"> $generator-&gt;next();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目地址：</p>
+<blockquote>
+<p><a href="https://github.com/linyiyuan/picture_bed.git" target="_blank" rel="noopener">https://github.com/linyiyuan/picture_bed.git</a></p>
+</blockquote>
+<p>  <strong>第1步：克隆代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/linyiyuan/picture_bed.git</span><br></pre></td></tr></table></figure>
 
-<pre><code>1 2 3 4 5 6 7 8 9 10</code></pre><p>  重点来了：这个yield_range函数似乎能够记住它上一次运行到哪儿了，上一次运行的结果是什么，然后紧接着在下一次运行的时候继续从上次终止的地方继续开始。这不是普通的PHP函数可以做得到的！</p>
-<p>我们知道，操作系统在调度进程的时候，会触发一个叫做“进程上下文切换”的概念。比如CPU从进程A调度给进程B了，那么当再次从进程B调度给进程A的时候，当初进程A运行到哪儿了、临时的数据结果是什么都是需要被还原的，不然，一切都要从头，那就要出大问题了。而，这个yield关键字，似乎在用户态（非系统内核级）就可以实现这个概念.</p>
-<p>接下来我们来认识一个Generator对象的一个方法 –send </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">yield_range</span><span class="params">( $start, $end )</span></span>&#123;</span><br><span class="line">   <span class="keyword">while</span>( $start &lt;= $end )&#123;</span><br><span class="line">   $ret = <span class="keyword">yield</span> $start;</span><br><span class="line">   $start++;</span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"yield receive : "</span>.$ret.PHP_EOL;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">$generator = yield_range( <span class="number">1</span>, <span class="number">10</span> );</span><br><span class="line">$generator-&gt;send( $generator-&gt;current() * <span class="number">10</span> );</span><br></pre></td></tr></table></figure>
+<p><strong>第2步：安装composer包</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
 
-<pre><code>//执行结果
-yield receive : 10</code></pre><p>send方法可以修改yield的返回值 , 我们继续修改代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">yield_range</span><span class="params">( $start, $end )</span></span>&#123;</span><br><span class="line">  <span class="keyword">while</span>( $start &lt;= $end )&#123;</span><br><span class="line">    $ret = <span class="keyword">yield</span> $start;</span><br><span class="line">    $start++;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"yield receive : "</span>.$ret . PHP_EOL;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">$generator = yield_range( <span class="number">1</span>, <span class="number">10</span> );</span><br><span class="line"><span class="keyword">foreach</span>( $generator <span class="keyword">as</span> $item )&#123;</span><br><span class="line">  $generator-&gt;send( $generator-&gt;current() * <span class="number">10</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>第3步：配置文件</strong></p>
+<p>1、在项目中找到<code>.env.example</code>文件，该文件作为项目的全局配置文件，在部署时需要复制成<code>.env</code>，执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -f .env.example ./.env</span><br></pre></td></tr></table></figure>
 
-<p>结果发现</p>
-<p><img src="http://images.linyiyuan.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20190907154456.png" alt></p>
-<p>这是PHP存在的一个Bug, 我们需要注意的是我们在foreach 去使用生成器的send方法，以下是bug的链接，有兴趣的可以去看下</p>
-<p><a href="https://bugs.php.net/bug.php?id=76104" target="_blank" rel="noopener">https://bugs.php.net/bug.php?id=76104</a> <a href="https://stackoverflow.com/questions/37817315/how-does-generatorsend-work" target="_blank" rel="noopener">https://stackoverflow.com/questions/37817315/how-does-generatorsend-work</a></p>
-<h2 id="引用文章"><a href="#引用文章" class="headerlink" title="引用文章"></a>引用文章</h2><ol>
-<li><a href="https://github.com/elarity/advanced-php/blob/master/17.%20PHP%E4%B8%AD%E7%9A%84yield%EF%BC%88%E4%B8%8A%EF%BC%89.md" target="_blank" rel="noopener">PHP中的yield（上)</a></li>
-<li><a href="https://www.php.net/manual/zh/class.generator.php" target="_blank" rel="noopener">生成器类</a></li>
-<li><a href="https://www.php.net/manual/zh/class.iterator.php" target="_blank" rel="noopener">Iterator（迭代器）接口</a></li>
-<li><a href="https://blog.csdn.net/h330531987/article/details/78993933" target="_blank" rel="noopener">PHP内置函数memory_get_usage()获取内存使用和getrusage()返回CUP使用情况</a></li>
-</ol>
+<p>2、根据.env文件修改各配置项，如果.env文件中没有存在key值则运行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan key:generate</span><br></pre></td></tr></table></figure>
+
+<p>3、配置stroage bootstrap 可写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 stroage bootstrap</span><br></pre></td></tr></table></figure>
+
+<p><strong>第4步：初始化数据库</strong></p>
+<p>在根路径上执行以下命令来实现初始化数据库结构。注意执行该命令前请检查项目是否已依赖<code>doctrine/dbal</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan migrate</span><br></pre></td></tr></table></figure>
+
+<p>至此项目部署已经基本以完成，配置相应apache或者nginx 域名指向即可</p>
+<h2 id="项目展示"><a href="#项目展示" class="headerlink" title="项目展示"></a>项目展示</h2><p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/06e45d780c22b1818f38f35ffe1b9d10.jpg" alt="相册首页">   </p>
+<p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/f897b405e0b1955aa58f5bd3ef9be31e.png.png" alt="相册列表">   </p>
+<p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/c37a55e8586dbc059550f6960c7f009a.jpg" alt="图片列表页">   </p>
+<p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/81ca6c9a2f40659b1e650f47530670fe.jpg" alt="图片列表页">   </p>
+<p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/1f8cb5ba592b3a230fc4e5801775bcc7.jpg" alt="图片详情页">   </p>
+<p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/dfae36e2bea944e7d6a8a21ae84f8f7a.png.png" alt="个人信息页"></p>
+<p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/931ed5c6e3ac7420c6d4142b993b0ae6.jpg" alt="后台展示"></p>
+<p><img src="https://shmily-album.oss-cn-shenzhen.aliyuncs.com/photo_album_9/293f0596c4900cfa1ee5669d3b1d479e.jpg" alt="后台上传页面"></p>
       
     </div>
 
@@ -661,7 +639,7 @@ yield receive : 10</code></pre><p>send方法可以修改yield的返回值 , 我�
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://yoursite.com/p/006a.html" title="关于PHP生成器Yield的使用（上）">http://yoursite.com/p/006a.html</a>
+    <a href="http://yoursite.com/p/061a.html" title="《开源项目篇》-- Picture_bed 相册展示系统">http://yoursite.com/p/061a.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -687,7 +665,13 @@ yield receive : 10</code></pre><p>send方法可以修改yield的返回值 , 我�
         
         <div class="post-tags">
           
+            <a href="/tags/Laravel/" rel="tag"><i class="fa fa-tag"></i> Laravel</a>
+          
             <a href="/tags/PHP/" rel="tag"><i class="fa fa-tag"></i> PHP</a>
+          
+            <a href="/tags/开源项目/" rel="tag"><i class="fa fa-tag"></i> 开源项目</a>
+          
+            <a href="/tags/Github/" rel="tag"><i class="fa fa-tag"></i> Github</a>
           
         </div>
       
@@ -720,8 +704,8 @@ yield receive : 10</code></pre><p>send方法可以修改yield的返回值 , 我�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/p/041a.html" rel="next" title="记录一次关于Vue的打包调优过程">
-                <i class="fa fa-chevron-left"></i> 记录一次关于Vue的打包调优过程
+              <a href="/p/021a.html" rel="next" title="《工具篇》-- 使用qshell批量下载七牛云储存桶资源">
+                <i class="fa fa-chevron-left"></i> 《工具篇》-- 使用qshell批量下载七牛云储存桶资源
               </a>
             
           </div>
@@ -729,10 +713,6 @@ yield receive : 10</code></pre><p>send方法可以修改yield的返回值 , 我�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/p/007a.html" rel="prev" title="关于PHP生成器Yield的使用（下）">
-                关于PHP生成器Yield的使用（下） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -959,7 +939,7 @@ yield receive : 10</code></pre><p>send方法可以修改yield的返回值 , 我�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认识Yield"><span class="nav-text">认识Yield</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator"><span class="nav-text">Generator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用文章"><span class="nav-text">引用文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目部署"><span class="nav-text">项目部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目展示"><span class="nav-text">项目展示</span></a></li></ol></div>
             
 
           </div>
