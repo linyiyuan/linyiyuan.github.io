@@ -3,13 +3,13 @@
   <entry>
     <title><![CDATA[《开源项目篇》-- Picture_bed 相册展示系统]]></title>
     <url>%2Fp%2F061a.html</url>
-    <content type="text"><![CDATA[项目部署首先你得确保你服务器符合以下要求： PHP &gt;= 7.1.3 OpenSSL PHP扩展 PDO PHP扩展，注意需要php_mysql Mbstring PHP扩展 Tokenizer PHP扩展 XML PHP扩展 项目地址： https://github.com/linyiyuan/picture_bed.git 第1步：克隆代码 1git clone https://github.com/linyiyuan/picture_bed.git 第2步：安装composer包 1composer install 第3步：配置文件 1、在项目中找到.env.example文件，该文件作为项目的全局配置文件，在部署时需要复制成.env，执行以下命令 1cp -f .env.example ./.env 2、根据.env文件修改各配置项，如果.env文件中没有存在key值则运行命令： 1php artisan key:generate 3、配置stroage bootstrap 可写 1chmod -R 777 stroage bootstrap 第4步：初始化数据库 在根路径上执行以下命令来实现初始化数据库结构。注意执行该命令前请检查项目是否已依赖doctrine/dbal 1php artisan migrate 至此项目部署已经基本以完成，配置相应apache或者nginx 域名指向即可 项目更新 增加了密码相册，允许在相册上设置问题访问，回答问题访问成功后自动保存访问信息，下次访问不需要进行密码认证，有效期为60分钟。 增加了_live2d_模型，可以切换各种角色，目前有10中角色的切换，里面配置了一部分快捷键。 项目展示]]></content>
+    <content type="text"><![CDATA[项目部署首先你得确保你服务器符合以下要求： PHP &gt;= 7.1.3 OpenSSL PHP扩展 PDO PHP扩展，注意需要php_mysql Mbstring PHP扩展 Tokenizer PHP扩展 XML PHP扩展 项目地址： https://github.com/linyiyuan/picture_bed.git 项目演示地址： http://album.linyiyuan.top 第1步：克隆代码 1git clone https://github.com/linyiyuan/picture_bed.git 第2步：安装composer包 1composer install 第3步：配置文件 1、在项目中找到.env.example文件，该文件作为项目的全局配置文件，在部署时需要复制成.env，执行以下命令 1cp -f .env.example ./.env 2、根据.env文件修改各配置项，如果.env文件中没有存在key值则运行命令： 1php artisan key:generate 3、配置stroage bootstrap 可写 1chmod -R 777 stroage bootstrap 第4步：初始化数据库 在根路径上执行以下命令来实现初始化数据库结构。注意执行该命令前请检查项目是否已依赖doctrine/dbal 1php artisan migrate 至此项目部署已经基本以完成，配置相应apache或者nginx 域名指向即可 项目更新 增加了密码相册，允许在相册上设置问题访问，回答问题访问成功后自动保存访问信息，下次访问不需要进行密码认证，有效期为60分钟。 增加了_live2d_模型，可以切换各种角色，目前有10中角色的切换，里面配置了一部分快捷键。 项目展示]]></content>
       <categories>
         <category>开源项目</category>
       </categories>
       <tags>
-        <tag>Laravel</tag>
         <tag>PHP</tag>
+        <tag>Laravel</tag>
         <tag>开源项目</tag>
         <tag>Github</tag>
       </tags>
@@ -174,8 +174,8 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>Laravel</tag>
         <tag>PHP</tag>
+        <tag>Laravel</tag>
       </tags>
   </entry>
   <entry>
