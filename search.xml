@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何在PHP中解析Cron表达式]]></title>
+    <url>%2Fp%2F001b.html</url>
+    <content type="text"><![CDATA[cron表达式简介Cron利用_cron表达式_表示重复计划。Cron表达式由几个字段组成，每个字段代表时间的度量。cron表达式中的字段如下：分钟，小时，每月的某天，月份，一周的某天以及可选的年份。这是一个每分钟运行一次的cron表达式示例，该表达式下方是位置字段。 123456789* * * * * *- - - - - -| | | | | || | | | | + year [optional]| | | | +----- day of week (0 - 7) (Sunday=0 or 7)| | | +---------- month (1 - 12)| | +--------------- day of month (1 - 31)| +-------------------- hour (0 - 23)+------------------------- min (0 - 59) 有几个特殊字符可以修改cron表达式的计划，并且某些修饰符在不同字段中的行为也有所不同。您可以在cron的Wikipedia页面上找到所有可用特殊字符的列表。 安装Cron解析包Github地址： https://github.com/dragonmantank/cron-expression 我们通过composer的方式来安装该包 1composer require dragonmantank/cron-expression 如果你使用的是Laravel框架的话则无需安装此包，这是因为Laravel框架的已经引入该包 使用方法12345678910require_once '/vendor/autoload.php';$cronTab = '* * * * *';//实例化Cron对象$cron = \Cron\CronExpression::factory($cron);//根据Cron表达式计算出下次实行时间 返回一个DateTime对象$cron = $cron-&gt;getNextRunDate();//转换时间为指定格式echo $cron-&gt;format('Y-m-d H:i:s'); 通过上面的代码我们可以轻易的就根据Cron表达式 计算出下次执行时间，是不是很方便呢，当然，这个包提供的方法不仅仅只是单纯计算出下次执行时间，同样我们也可以计算出下X次执行时间 123456$cron = \Cron\CronExpression::factory($cron);foreach($cron-&gt;getMultipleRunDates(5) as $date)&#123; echo $date-&gt;format('Y-m-d H:i:s') . PHP_EOL; &#125; 运行结果： 12345678D:\php7.3\php.exe C:\Users\php\Desktop\local_test\index.php2019-12-30 15:53:002019-12-30 15:54:002019-12-30 15:55:002019-12-30 15:56:002019-12-30 15:57:00Process finished with exit code 0 同样我们可以获取上次的执行时间 以及上X次执行时间： 12345678$cron = \Cron\CronExpression::factory($cron);$cron = $cron-&gt;getPreviousRunDate();echo $cron-&gt;format('Y-m-d H:i:s');$cron = \Cron\CronExpression::factory($cron);foreach($cron-&gt;getMultipleRunDates(5, 'now', true ) as $date)&#123; echo $date-&gt;format('Y-m-d H:i:s') . PHP_EOL; &#125; 我们还可以通过isDue 方法来查看cron表达式是否与特定日期匹配，同时该库也支持一些宏 @yearly，@annually-每年1月1日午夜运行一次-0 0 1 1 * @monthly -每个月的第一天午夜运行一次- 0 0 1 * * @weekly -每周午夜在太阳上运行一次- 0 0 * * 0 @daily -每天半夜运行一次- 0 0 * * * @hourly -第一分钟每小时运行一次- 0 * * * * 我们可以通过这些宏来快速计算出执行时间，例如下面这个例子可以快速计算出每天半夜执行一次的时间： 12$cron = Cron\CronExpression::factory('@daily');echo $cron-&gt;getNextRunDate()-&gt;format('Y-m-d H:i:s'); 参考文献 http://mtdowling.com/blog/2012/06/03/cron-expressions-in-php/ https://github.com/mtdowling/cron-expression]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+        <tag>Laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《开源项目篇》-- Picture_bed 相册展示系统]]></title>
     <url>%2Fp%2F061a.html</url>
     <content type="text"><![CDATA[项目部署首先你得确保你服务器符合以下要求： PHP &gt;= 7.1.3 OpenSSL PHP扩展 PDO PHP扩展，注意需要php_mysql Mbstring PHP扩展 Tokenizer PHP扩展 XML PHP扩展 项目地址： https://github.com/linyiyuan/picture_bed.git 项目演示地址： http://album.linyiyuan.top 第1步：克隆代码 1git clone https://github.com/linyiyuan/picture_bed.git 第2步：安装composer包 1composer install 第3步：配置文件 1、在项目中找到.env.example文件，该文件作为项目的全局配置文件，在部署时需要复制成.env，执行以下命令 1cp -f .env.example ./.env 2、根据.env文件修改各配置项，如果.env文件中没有存在key值则运行命令： 1php artisan key:generate 3、配置stroage bootstrap 可写 1chmod -R 777 stroage bootstrap 第4步：初始化数据库 在根路径上执行以下命令来实现初始化数据库结构。注意执行该命令前请检查项目是否已依赖doctrine/dbal 1php artisan migrate 至此项目部署已经基本以完成，配置相应apache或者nginx 域名指向即可 项目更新 增加了密码相册，允许在相册上设置问题访问，回答问题访问成功后自动保存访问信息，下次访问不需要进行密码认证，有效期为60分钟。 增加了_live2d_模型，可以切换各种角色，目前有10中角色的切换，里面配置了一部分快捷键。 项目展示]]></content>
